@@ -1,0 +1,22 @@
+<div class="hg-container-app container-fluid p-0 d-flex flex-column vh-100  ">
+
+    <app-header class="order-1"></app-header>
+
+
+    <main class="order-2 d-flex flex-column overflow-hidden flex-grow-1">
+        <!-- 
+          the routed component can have classes provided
+          selector: 'app-view1.component.d-flex.flex-column.overflow-hidden',
+          -->
+        <!-- https://stackoverflow.com/questions/31728022/why-is-percentage-height-not-working-on-my-div/31728799#31728799 -->
+        <router-outlet  [routerOutletData]="{ layout: 'sidebar' , currentbp: currentbp()}" />
+    </main>
+
+    <div class="order-3 hg-footer-app-global d-flex flex-row rounded m-0 p-0 ms-1 me-1 flex-shrink-0">
+        <div class="col-12 py-1">
+            App Footer ...
+        </div>
+    </div>
+
+</div>
+

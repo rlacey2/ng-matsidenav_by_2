@@ -1,0 +1,52 @@
+<header id="header" class="nav-menu-height d-flex align-items-center rounded">
+    <nav class="w-100">
+        <div id="navbar" class="d-flex flex-row justify-content-between align-items-center pe-2">
+
+            <div> <!-- break point decides which logo to display -->
+                <img src="assets/logo.jpg" class="logo d-none d-sm-block" alt="Company Logo" />
+                <img src="assets/logo_mobile.jpg" class="logo d-block d-sm-none" alt="Company Logo" />
+            </div>
+
+            <div class="d-flex flex-column justify-content-between">
+                <!-- one of the next two is not visible depending on the responsive state -->
+                <div class="menu-icon" (click)="openMenu()">
+                    <i class="{{menu_icon}}"></i>
+                </div>
+
+                <div class="desktop_menu" [class.mobile_menu]="menuValue">
+                    <!-- these items are responsive -->
+                    <ul class=" align-items-center">
+
+                        <!--
+                        <li><a [routerLink]="['/view1']">View 1</a></li> 
+                        -->
+                        <li (click)="closeMenu('')">Status</li>
+                        <li (click)="closeMenu('view1')">View 1</li>
+                        <li (click)="closeMenu('view2')">View 2</li>
+                        <li (click)="closeMenu('delivery')">Delivery</li>
+                        <li (click)="closeMenu('grid')">Grid</li>
+
+                        <li >
+                            <button matIconButton [matMenuTriggerFor]="menuA" class="d-flex align-items-center"
+                                aria-label="Settings">
+                               <!-- <i class="small bi bi-gear"></i> --> 
+                                <i class="small bi bi-three-dots-vertical text-white"></i>
+                               
+                            </button>
+                            <mat-menu #menuA="matMenu">
+                                <button mat-menu-item (click)="themeChoice('light')">
+                                    <span>Light</span>
+                                </button>
+                                <button mat-menu-item (click)="themeChoice('dark')">
+                                    <span>Dark</span>
+                                </button>
+                            </mat-menu>
+                        </li>
+
+                    </ul>
+                </div>
+ 
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,47 @@
+
+ <!-- dynamically build a nested menu -->
+<mat-menu #menu >
+
+   
+    @for( item of items; track $index) {
+
+    <ng-container>
+<!-- 
+ @if(false) {
+        @if(!item.children?.length) { <! -- single level only i.e. not nested -- >
+        <button mat-menu-item (click)="selected.emit(item.value)">
+            {{ item.name }}
+        </button>
+        }
+        @else { <! --  nested -- >
+        <button mat-menu-item (click)="selected.emit(item.value)" withChildren>
+            {{ item.name }}
+        </button>
+        }
+
+    }
+    -->
+
+    <!-- 
+    20251027 wip chatAI stated  this syntax still need due to structural ng-template 
+    syntax above was my attempt and suggested by chatAI aswell
+    
+
+    technical debt code smell here 
+     -->
+       <button *ngIf="!item.children?.length; else withChildren" mat-menu-item (click)="selected.emit(item.value)"
+       
+        >
+            {{ item.name }}
+        </button>
+ 
+        <ng-template #withChildren>
+            <button mat-menu-item [matMenuTriggerFor]="child.menu">P {{ item.name }}</button>
+            <!-- nested -->
+            <ui-menu #child [items]="item.children" (selected)="selected.emit($event)" />
+        </ng-template>
+
+    </ng-container>
+    }
+ 
+</mat-menu>

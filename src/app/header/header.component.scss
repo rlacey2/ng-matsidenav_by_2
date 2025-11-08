@@ -1,0 +1,99 @@
+/*
+default responsive menu styling
+
+see styles.css for variables
+
+
+*/
+ 
+header {
+ // padding: 2px;  // removing may cause a smooth colour break when mobile menu slides and logo centering
+  background: var(--nav-background);
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.logo {
+  width: 90px;
+  height: var(--nav-menu-height);
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.desktop_menu {
+ // margin-top: 4px;
+    z-index: 999; // > 999 may cause issues with angular mat-menu items being on top of the men
+}
+
+.desktop_menu ul {
+  padding: 0;
+  margin: 0;
+}
+
+.desktop_menu ul li,
+.desktop_menu ul li a {
+  list-style-type: none;
+  color: white;
+  display: inline-block;
+  font-size: var(--nav-menu-font-size);
+  margin-left: 5px;   /* spacing between menu items on the horizontal */
+  margin-right: 5px; 
+  padding: 4px 4px;
+}
+
+.desktop_menu ul li:hover {
+  font-size: var(--nav-menu-font-size);
+  //font-weight: bold;
+  cursor: pointer;
+  background: var(--hg-nb-view-local-hover-color);
+  border-radius: 4px;
+  transition: var(--menu-item-hover-transition);
+}
+
+.menu-icon {
+  display: none;
+}
+
+.nav-menu-height {
+     height: var(--nav-menu-height)
+}
+
+@media screen and (max-width: 576px) {
+
+  .desktop_menu {
+    position: fixed !important;
+    right: calc( 0px - var(--mobile-menu-width) ) ; // negative sign here to hide offscreen
+    transition: var(--menu-transition);
+    top: var(--mobile-menu-top);   // changing effects where floating menu for mobile appear flush to navbar (or not)
+    background: var(--nav-background);
+    width: var(--mobile-menu-width);
+  //  height: 100%;
+  }
+
+  .desktop_menu ul li {
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding: 8px 0 8px 16px;
+    border-bottom: 1px solid grey;
+  }
+
+  .menu-icon {
+    display: block;
+    color: black;
+    font-size: 24px;
+    padding-top: 2px;
+  }
+
+  .mobile_menu {
+    right: 0;
+    transition: var(--menu-transition);
+  }
+
+  .bg-default {
+    background: var(--bg-default)
+  }
+ 
+}

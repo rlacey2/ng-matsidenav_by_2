@@ -1,0 +1,200 @@
+<div class="hg-container-view d-flex flex-column overflow-hidden flex-grow-1  ">
+
+  <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded  ms-1 me-1 flex-shrink-0">
+    <a class="navbar-brand ms-2" href="#">Local</a>
+    <ul class="navbar-nav">
+
+      <li><a [routerLink]="['']">Status</a></li>
+      <li><a [routerLink]="['/view1']">View 1</a></li>
+      <li><a [routerLink]="['/view2']">View 2</a></li>
+      <li><a [routerLink]="['/delivery']">Delivery</a></li>
+      <li><a [routerLink]="['/grid']">Grid</a></li>
+
+    </ul>
+    <!-- 
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="#" class="nav-link">Options</a></li>
+            </ul>
+            -->
+  </nav>
+
+  <div class="hg-view-content d-flex flex-row flex-grow-1 ms-1 pe-1 overflow-hidden">
+    <!-- a row of 3 items, each of which is a column -->
+
+    <div class='hg-view-body order-2 d-flex flex-column  ms-0 w-100 '>
+      <!-- centre item, is a column itself-->
+
+      <div class='hg-view-body-sticky-header row flex-shrink-0 bg-secondary bg-gradient text-white rounded ms-1 me-1'>
+        <div class="">
+          Body Sticky Header Status
+        </div>
+      </div>
+
+      <div
+        class="hg-view-body-top-content d-flex flex-column mh-100 rounded ms-1 me-1 ps-2 pe-2 scroll-y flex-grow-1">
+
+
+        <!-- the component body structure is inserted within this div to have sticky header and fiiter -->
+
+
+
+        <form [formGroup]="deliveryForm" novalidate (ngSubmit)="onSubmit()">
+          <mat-card class="delivery-card">
+
+            <mat-card-header class="mb-2">
+              <mat-card-title>Delivery Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+              <div class="d-flex flex-row flex-wrap">
+                <div class="col">
+                  <mat-form-field class="w-100" appearance="outline" >
+                   <mat-label>Company</mat-label>
+                    <input matInput placeholder="Company" formControlName="company">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap">
+
+                <div class="col">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName">
+                    @if (deliveryForm.controls['firstName'].hasError('required')) {
+                    <mat-error>First <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+
+                <div class="col">
+                  <mat-form-field class="w-100" subscriptSizing="dynamic" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName">
+                    @if (deliveryForm.controls['lastName'].hasError('required')) {
+                    <mat-error>Last name <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap">
+                <div class="col">
+                  <mat-form-field class="w-100" subscriptSizing="dynamic" appearance="fill">
+                    <mat-label>Delivery</mat-label>
+
+                    <textarea matInput placeholder="Delivery" formControlName="address"></textarea>
+                    @if (deliveryForm.controls['address'].hasError('required')) {
+                    <mat-error>Address <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap">
+                <div class="col">
+                  @if (hasCourierMessage) {
+                  <mat-form-field class="w-100 mt-2">
+                    <textarea matInput placeholder="Courier Message" formControlName="courierMessage"></textarea>
+                  </mat-form-field>
+                  } @else {
+                  <button mat-button type="button" (click)="hasCourierMessage = !hasCourierMessage">
+                    + Add optional delivery message to courier
+                  </button>
+                  }
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap">
+                <div class="col">
+                  <mat-form-field class="w-100">
+                    <input matInput placeholder="City" formControlName="city">
+                    @if (deliveryForm.controls['city'].hasError('required')) {
+                    <mat-error>City is <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field class="w-100">
+                    <mat-select placeholder="Country" formControlName="country">
+                      @for (c of countries; track c) {
+                      <mat-option [value]="c.abbreviation">{{ c.name }}</mat-option>
+                      }
+                    </mat-select>
+                    @if (deliveryForm.controls['country'].hasError('required')) {
+                    <mat-error>Country is <strong>required</strong></mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+              </div> 
+              <div class="d-flex flex-row flex-wrap">
+                <div class="col-1 col-sm-2">
+                  <mat-form-field >
+                    <input matInput #eircode maxlength="6" placeholder="EirCode" formControlName="eircode">
+                    <mat-hint class="text-end"  >{{eircode.value.length}} / 6</mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="d-flex flex-row flex-wrap">
+                <div class="col">
+                  <mat-radio-group formControlName="Delivery">
+                    <mat-radio-button value="free">Free Delivery</mat-radio-button>
+                    <mat-radio-button value="priority">Priority Delivery</mat-radio-button>
+                    <mat-radio-button value="nextday">Next Day Delivery</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" type="submit">Submit</button>
+            </mat-card-actions>
+          </mat-card>
+        </form>
+ 
+      </div>
+
+      <div class='hg-view-body-sticky-footer row flex-shrink-0 bg-secondary bg-gradient text-white rounded ms-1 me-1'>
+        <div class="">
+          Body Sticky Footer Status
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hg-sb hg-sb1 order-1 col-2 mh-100 scroll-y  ps-1">
+      <h6 class="mt-1">Sidebar1</h6>
+      <ul class="nav flex-column">
+
+        <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
+        <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a></li>
+        <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a></li>
+        <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a></li>
+        <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
+
+      </ul>
+    </div>
+
+    @if(false) {
+    <div class="hg-sb hg-sb2 order-3 col-2 mh-100 scroll-y  ps-1">
+      <h6 class="mt-1">Sidebar2</h6>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
+        <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a></li>
+        <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a></li>
+        <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a></li>
+        <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link6</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link7</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link8</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link9</a>
+        </li>
+      </ul>
+    </div>
+    }
+
+  </div>
+
+</div>

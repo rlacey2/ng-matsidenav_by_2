@@ -1,0 +1,64 @@
+ .mat-sidenav-container-main {
+     position: absolute;
+     top: 70px; // allow for navbar
+     bottom: 0;
+     left: 0;
+     right: 0;
+ }
+
+ .mat-sidenav-default {
+     background-color: mediumpurple;
+     width: 180px;
+ }
+
+
+ .example-radio-group {
+     display: block;
+     border: 1px solid #555;
+     margin: 20px;
+     padding: 10px;
+ }
+
+ .button-container {
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .toggle-default {
+   //  position: absolute;
+   //  top:-10px;
+   
+     background-color: white;
+     transition: ease-in-out 0.8s;
+ }
+
+.toggle-default:hover {
+     background-color: green;
+ }
+
+ .toggle1 {
+    
+     padding-left: 3px;
+     padding-right: 5px;
+     border-top-right-radius: 10px;
+     border-bottom-right-radius: 10px;
+ }
+
+ .toggle2 {
+     
+     padding-left: 5px;
+     padding-right: 3px;
+     border-top-left-radius: 10px;
+     border-bottom-left-radius: 10px;
+ }
+
+ .toggle1:hover {
+     padding-left: 10px;
+     
+ }
+
+ .toggle2:hover {
+     padding-right: 10px;
+     
+
+ }

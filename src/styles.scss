@@ -1,0 +1,184 @@
+@use '@angular/material' as mat;
+@use 'style-theme-colors' as colors;
+
+@use '../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@use '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --bg-default: yellow;
+    --bg-sidemenu: rgb(212, 212, 231);
+
+    /* nav related */
+    --nav-menu-font-size: 16px;
+    --nav-menu-height: 32px;
+    --mobile-menu-top: calc(var(--nav-menu-height) - 4px); // may need to adjust relative to nav-menu-height
+    --mobile-menu-width: 180px;
+    --menu-transition: 0.5s ease-in-out; // responsive slide in/out
+    --menu-item-hover-transition: 0.8s ease-in-out;
+    --hg-nb-view-local-height: var(--nav-menu-height);
+    --hg-nb-view-local-hover-color: grey;
+
+}
+
+@property --nav-background {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #e0564f;
+}
+
+html,
+body {
+
+    margin: 0;
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    @include mat.theme((color: colors.$primary-palette,
+            typography: Roboto,
+            density: -5)); // minus values   -1 to -5; -5 smallest height
+}
+
+html {
+    color-scheme: light; // browser standard based on o/s used in nav bar toggle could peristent to localstorage
+}
+
+html.dark {
+    color-scheme: dark; // browser standard based on o/s used in nav bar toggle could peristent to localstorage
+}
+
+html {
+    overflow: hidden;
+}
+
+main {
+    // contains router-outlet so 
+    padding: 0px;
+}
+
+.bg-default {
+    background: var(--bg-default);
+}
+
+.bg-sidemenu {
+    background: var(--bg-sidemenu);
+}
+
+.hg-sb ul {
+    // side menu 
+    background: var(--bg-sidemenu);
+    border-radius: var(--bs-border-radius);
+
+    li a {
+        color: black;
+        padding-left: 6px;
+    }
+}
+
+.scroll-y,
+.overflow-y {
+    overflow-y: scroll;
+}
+
+/*
+scrollbar newer browsers
+*/
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+.hg-nb-view-local {
+    height: var(--hg-nb-view-local-height);
+}
+
+.hg-container-view {
+    /*  global to all components in router-outlet
+      use local component .scss if need to be unique to that component
+  */
+
+    nav {
+        // padding: 1rem;
+        font-size: var(--mat-sys-body-medium);
+        color: var(--mat-sys-primary);
+        background-color: var(--mat-sys-primary-container);
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    nav ul li {
+        margin-right: 10px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        padding: 4px 4px;
+        display: block;
+        cursor: pointer;
+    }
+
+    nav ul li a:hover {
+        color: var(--mat-sys-primary);
+        background-color: var(--mat-sys-surface);
+        border-radius: 4px;
+        transition: var(--menu-item-hover-transition);
+        // padding: 4px;
+    }
+
+
+}
+
+// .hg-container-view 
+
+
+mat-form-field:hover {
+    background-color: antiquewhite;
+    // need to allow for the border jump
+    //   border-style: dotted;
+    //  border-color: #e0564f;
+}
+
+
+/* responsive header/navbar */
+/*           >       >           >          >           >            > 
+  xs: 0,  sm: 576px, md: 768px,  lg: 992px, xl: 1200px, xxl: 1400px, xxxl: 2560px  
+*/
+@media screen and (max-width:576px) {
+
+    // responsible for the small device toggle for menu and X  to close responsive app menu
+    header:has(#toggle:checked) #navigation {
+        height: var(--menu-height, 5rem);
+    }
+
+    header:has(#toggle:checked) #menu-icon {
+        display: none;
+        height: 0px;
+        visibility: hidden;
+    }
+
+    header:has(#toggle:checked) #close-icon {
+        display: inline-block;
+        visibility: visible;
+    }
+
+    .sm\:overflow-auto {
+        overflow: auto;
+    }
+
+    .sm\:flex-row {
+        flex-direction: row;
+    }
+
+}
