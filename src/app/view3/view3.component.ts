@@ -13,7 +13,10 @@ import { FormControl } from '@angular/forms';
 import { LatinComponent } from "../_utility/latin.component";
 
 @Component({
-  selector: 'app-view3.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
+  selector: 'app-view3', // NB these classes to maintain response scrolling
+      host: {
+      class:'d-flex flex-column overflow-hidden h-100'
+  },
   imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent, LatinComponent],
   templateUrl: './view3.component.html',
   styleUrl: './view3.component.scss',

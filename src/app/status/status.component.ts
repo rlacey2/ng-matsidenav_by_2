@@ -12,12 +12,12 @@ import {CdkScrollable} from '@angular/cdk/scrolling';
 import { LatinComponent } from "../_utility/latin.component";
 
  
-
-
-
 /** @title Implicit main content with two sidenavs */
 @Component({
-  selector: 'status.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
+  selector: 'status', // NB these classes to maintain response scrolling
+    host: {
+      class:'d-flex.flex-column.overflow-hidden.h-100'
+  },
   templateUrl: 'status.component.html',
   styleUrls: [ 'status.component.scss'],
   imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent]
@@ -25,7 +25,7 @@ import { LatinComponent } from "../_utility/latin.component";
 export class StatusComponent {
 
   public dialog = inject(MatDialog)
-  outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
+ // outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
   private breakpointObserver = inject(BreakpointObserver)
   bps = inject(BreakpointService)
 
@@ -67,7 +67,7 @@ export class StatusComponent {
   //readonly breakpoint$;
 
   constructor() {
-    console.log('outletData ', this.outletData())
+  //  console.log('outletData ', this.outletData()) not working when called by selector into dialog
 
   //  this.bpNative = this.bps.breakpointNative()
     

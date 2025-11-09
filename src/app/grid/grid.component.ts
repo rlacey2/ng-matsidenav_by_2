@@ -6,7 +6,10 @@ import { MatTableModule, MatTable } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-grid.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
+  selector: 'app-grid', // NB these classes to maintain response scrolling
+        host: {
+      class:'d-flex flex-column overflow-hidden h-100'
+  },
   templateUrl: './grid.component.html',
   styleUrl: './grid.component.scss',
   standalone: true,

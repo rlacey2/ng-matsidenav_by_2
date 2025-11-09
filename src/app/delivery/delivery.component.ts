@@ -10,13 +10,16 @@ import { RouterLink } from '@angular/router';
 
 
 @Component({
-  selector: 'app-delivery.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
+  selector: 'app-delivery', // NB these classes to maintain response scrolling
+  host: {
+    class: 'd-flex flex-column overflow-hidden h-100'
+  },
   templateUrl: './delivery.component.html',
   styleUrl: './delivery.component.scss',
   standalone: true,
   imports: [
     MatInputModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
@@ -42,9 +45,9 @@ export class DeliveryComponent {
   });
 
 
-  
 
- 
+
+
   countries = [
     { name: 'France', abbreviation: 'fr' },
     { name: 'Germany', abbreviation: 'de' },
@@ -55,25 +58,25 @@ export class DeliveryComponent {
 
   ];
 
-constructor( ) {
-  
-}
+  constructor() {
 
- 
- 
+  }
+
+
+
 
 
   onSubmit(): void {
-    
+
     if (this.deliveryForm.invalid) {
       alert('Form Invalid: ideally button would be disabled');
-   
+
     }
     else {
       alert('Logic for API call to server');
     }
 
-   
+
   }
 
 

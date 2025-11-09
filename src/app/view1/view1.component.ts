@@ -10,7 +10,10 @@ import { Subscription } from 'rxjs';
 import { LatinComponent } from "../_utility/latin.component";
 
 @Component({
-  selector: 'app-status.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
+  selector: 'app-status', // NB these classes to maintain response scrolling
+        host: {
+      class:'d-flex flex-column overflow-hidden h-100'
+  },
   imports: [ReactiveFormsModule, RouterLink, MatSidenavContainer, MatSidenav, MatRadioGroup, MatRadioButton, MatSidenavContent, LatinComponent],
   templateUrl: './view1.component.html',
   styleUrl: './view1.component.scss',

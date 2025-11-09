@@ -2,30 +2,34 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Component, inject, OnInit, Signal, ViewChild } from '@angular/core';
 import { MatSidenavContainer, MatSidenav, MatSidenavContent } from "@angular/material/sidenav";
- 
+
 import { Observable, Subject, Subscription } from 'rxjs';
- 
+
 import { RouterLink } from '@angular/router';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
- 
- 
-import {CdkScrollable} from '@angular/cdk/scrolling';
- 
+
+
+import { CdkScrollable } from '@angular/cdk/scrolling';
+
 import { MAT_DIALOG_DATA, MatDialog, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { LatinComponent } from '../../_utility/latin.component';
 import { BreakpointService } from '../../services/bpo';
 import { SafePipe } from '../../pipes/safe-pipe';
+import { StatusComponent} from '../../status/status.component'
 
- 
+
 
 //import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
   // NB need the h-100 here to put component footer at bottom of view, if missing it moves up
-  selector: 'app-genericdialog.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
-  imports: [MatDialogClose, MatButtonModule, SafePipe, MatSidenavContainer, MatSidenavContent, MatSidenav, LatinComponent],
+  selector: 'app-genericdialog', // NB these classes to maintain response scrolling
+        host: {
+      class:'d-flex flex-column overflow-hidden h-100'
+  },
+  imports: [MatDialogClose, MatButtonModule, SafePipe, StatusComponent, MatSidenavContainer, MatSidenavContent, MatSidenav, LatinComponent],
   standalone: true,
   templateUrl: './genericdialog.component.html',
   styleUrl: './genericdialog.component.scss',
@@ -33,12 +37,11 @@ import { SafePipe } from '../../pipes/safe-pipe';
 export class GenericDialogComponent {
 
 
-   private dialogRef = inject(MatDialogRef<GenericDialogComponent>)
+  private dialogRef = inject(MatDialogRef<GenericDialogComponent>)
   public readonly data: any = inject(MAT_DIALOG_DATA)
 
   public dialog = inject(MatDialog)
 
- 
   private breakpointObserver = inject(BreakpointObserver)
   bps = inject(BreakpointService)
 
@@ -53,7 +56,7 @@ export class GenericDialogComponent {
 
   subs: Subscription[] = [];
 
-    public myBreakpoints: any = {
+  public myBreakpoints: any = {
     xs: "(max-width: 565px)",
     sm: "(min-width: 566px) and (max-width: 767px)",
     md: "(min-width: 768px) and (max-width: 991px)",
@@ -61,23 +64,23 @@ export class GenericDialogComponent {
     xl: "(min-width: 1200px)"
   };
 
- 
+
   currentBreakpoint: string = ''; // min max string
   currentBreakpointKey: string = ''
 
 
 
-    colFitClasses = {
+  colFitClasses = {
     // xs cols folloed by > sm 
-    
+
     xs1sm1: "col-12 ",
     xs2sm4: "col-6 col-sm-3 ",
     xs1sm2: "col-12 col-sm-6 ",
     xs1sm3: "col-12 col-sm-4 ",
 
   }
- 
-BLOCKING_FULL_SCREEN_DIALOG_OPTIONS: any
+
+  BLOCKING_FULL_SCREEN_DIALOG_OPTIONS: any
 
   constructor() {
     this.BLOCKING_FULL_SCREEN_DIALOG_OPTIONS = this.data
@@ -188,7 +191,7 @@ BLOCKING_FULL_SCREEN_DIALOG_OPTIONS: any
    */
 
   toggle_msn_mode_bothsides(mode: any, state: boolean) {
-    this.sidenav_mode  = mode;
+    this.sidenav_mode = mode;
     this.sidenav1.mode = mode;
     this.sidenav2.mode = mode;
 
@@ -208,10 +211,10 @@ BLOCKING_FULL_SCREEN_DIALOG_OPTIONS: any
     else {
       x.open()
     }
- 
+
   }
 
- 
+
   openDialog() {
 
     /*
@@ -224,7 +227,7 @@ BLOCKING_FULL_SCREEN_DIALOG_OPTIONS: any
       maxHeight: "100%",
       disableClose: true, // only the cancel button closes the dialog when true
       //   panelClass: 'bg-danger'
-      data : { height: "calc(100% - 15px)", title : 'SOME TITLE' }
+      data: { height: "calc(100% - 15px)", title: 'SOME TITLE' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
