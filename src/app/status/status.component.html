@@ -1,6 +1,6 @@
 <div class="hg-view-container d-flex flex-column overflow-hidden flex-grow-1">
 
-    <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded  ms-1 me-1 flex-shrink-0">
+    <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded ms-1 me-1 flex-shrink-0">
         <a class="navbar-brand ms-2" href="#">Status</a>
         <ul class="navbar-nav">
 
@@ -121,10 +121,10 @@
                         <div class="hg-sb hg-sb1 mh-100 scroll-y  ps-1 pb-3"> <!-- pb-3 for scrolling at bottom -->
 
                             <h6 class="mt-1">Sidebar2</h6>
-                         
+
                             <ul class="nav flex-column">
                                 <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
-                              <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
+                                <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
                                 </li>
                                 <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a>
                                 </li>
@@ -205,258 +205,257 @@
 
             </mat-sidenav>
 
-              <mat-sidenav-content class="msc h-100 d-flex flex-column">
+            <mat-sidenav-content class="msc h-100 d-flex flex-column">
 
                 <!-- vh-100 pb-3 needed for safe 100% scrolling -->
 
-       <div
-                class="  d-flex flex-column flex-grow-1 scroll-y mh-100  rounded ms-1 me-1 ps-2 pe-2 pb-5">
- 
-                <div class="msn-button-bar">
-                    <!-- 
+                <div class="  d-flex flex-column flex-grow-1 scroll-y mh-100  rounded ms-1 me-1 ps-2 pe-2 pb-5">
+
+                    <div class="msn-button-bar">
+                        <!-- 
                             STICKY 
                             buttons to open are hidden when sidebars displayed on larger devices
                                  buttons are fixed left and right
                                
                             -->
-                    <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
-                            class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
+                        <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
+                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
+                                class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
-                    <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
-                        currentBreakpoint}}</span>
+                        <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
+                            currentBreakpoint}}</span>
 
-                    <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
-                            class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
-
-                </div>
-
-                <div class="scroll-y vh-100 pb-5 pe-1"> <!-- vh-100 very important in mat-sidenav-content -->
-
-                    <div class="a_generic_dialog mt-0">
-                        <div>Generic Dialog</div>
-                        <button mat-button (click)="openDialog()" class="bg-light">Open Dialog</button>
-                    </div>
-
-                    <div>
-                        <div>
-                            ahdoc-container :- one question label and input container <br>
-                            adhoc-label :- label associated with one question<br>
-                            adhoc-input :- linput related to one question<br>
-                            max is 4 columns 1) Can share row 2) never share row on xs etc<br>
-                        </div>
-
-                        <div class="QUESTIONS border border-1 border-dark ">
-
-                            <div class="container-qs-h">
-
-                                <span>
-                                    ccccccc
-                                </span>
-
-                            </div>
-
-                            <div class="container-qs-d">
-                            </div>
-
-                        </div>
-
-
-                        <div class="container-qs-d row m-0"> <!-- m-0 needed as row causes x scroll to appear -->
-
-                            <div>
-                                3 x Irregular sized labels
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
-                                <div class="adhoc-input flex-row  mt-auto">
-                                    01To be, or not to be: that is the question: Whether 'tis
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-start">
-                                    <input type="number" id="quantity" name="quantity" min="1" max="5">
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
-                                <div class="adhoc-input flex-row  mt-auto">
-                                    02To be, or not to be: that is the question: Whether 'tis nobler
-                                    in the mind to suffer / The
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-center">
-                                    <input type="text" name="telephone" maxlength="20" size="24">
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                    <div class="adhoc-input flex-row ">03To be </div>
-                                </div>
-
-                                <div class="adhoc-input d-flex flex-row justify-content-end">
-                                    <textarea rows="2" cols="50"></textarea>
-                                </div>
-                            </div>
-
-                            <div>
-                                3 x Irregular sized textarea
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                    <div class="adhoc-input flex-row ">04To be </div>
-                                </div>
-
-                                <div class="adhoc-input d-flex flex-row justify-content-end">
-                                    <textarea rows="2" cols="50"></textarea>
-                                </div>
-                            </div>
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                    <div class="adhoc-input flex-row ">05To be, or not to be: that is the
-                                        question:
-                                        Whether 'tis nobler in the mind to suffer / The slings </div>
-                                </div>
-
-                                <div class="adhoc-input d-flex flex-row justify-content-end">
-                                    <textarea rows="3" cols="50"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}  ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                    <div class="adhoc-input flex-row ">06To be </div>
-                                </div>
-
-                                <div class="adhoc-input d-flex flex-row justify-content-end">
-                                    <textarea rows="4" cols="50"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm1 }} ">
-                                <div class="adhoc-label flex-row mt-auto">
-                                    07To be, or not to be: that
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-center">
-                                    <input type="text" name="telephone" maxlength="20" size="24">
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
-                                <div class="adhoc-label flex-row mt-auto">
-                                    08To be, or not to be: that
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-center">
-                                    <input type="text" name="telephone" maxlength="20" size="24">
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                    <div class="d-flex flex-row ">09To be </div>
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-end">
-                                    <input type="text" name="telephone" maxlength="20" size="24">
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
-                                    <div class="d-flex flex-row ">10To be </div>
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-start">
-                                    <input type="text" name="telephone" maxlength="12" size="16">
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-center">
-                                    <div class="d-flex flex-row ">11To be </div>
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-center">
-                                    <input type="text" name="telephone" maxlength="12" size="16">
-                                </div>
-                            </div>
-
-
-                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                    <div class="d-flex flex-row ">12To be </div>
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-center">
-                                    <input type="text" name="telephone" maxlength="12" size="16">
-                                </div>
-                            </div>
-
-                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                    <div class="d-flex flex-row ">13To be </div>
-                                </div>
-                                <div class="adhoc-input d-flex flex-row justify-content-end">
-                                    <input type="text" name="telephone" maxlength="12" size="16">
-                                </div>
-                            </div>
-
-
-                        </div> <!-- -->
-
-
-                        <div class="zzcontainer bg-success">
-                            <div class="row m-0 row-cols-2">
-
-                                <div class="{{ colFitClasses.xs1sm2 }} " style="min-width: 400px;">
-                                    <div class="bg-info ps-0">xs1sm2 Two min-with 400px</div>
-                                </div>
-                                <div class="{{ colFitClasses.xs1sm2 }}" style="min-width: 410px;">
-                                    <div class="bg-info">xs1sm2 Two min-with 410px</div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                        <div>
-
-                        </div>
-
-                        <div>
- @if(1) {
-     <latin></latin>
- }
- 
-                        </div>
+                        <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
+                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
+                                class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
 
                     </div>
 
+                    <div class="scroll-y vh-100 pb-5 pe-1"> <!-- vh-100 very important in mat-sidenav-content -->
 
-                </div>
-      <div class="msn-button-bar">
-                    <!-- 
+                        <div class="a_generic_dialog mt-0">
+                            <div>Generic Dialog</div>
+                            <button mat-button (click)="openDialog()" class="bg-light">Open Dialog</button>
+                        </div>
+
+                        <div>
+                            <div>
+                                ahdoc-container :- one question label and input container <br>
+                                adhoc-label :- label associated with one question<br>
+                                adhoc-input :- linput related to one question<br>
+                                max is 4 columns 1) Can share row 2) never share row on xs etc<br>
+                            </div>
+
+                            <div class="QUESTIONS border border-1 border-dark ">
+
+                                <div class="container-qs-h">
+
+                                    <span>
+                                        ccccccc
+                                    </span>
+
+                                </div>
+
+                                <div class="container-qs-d">
+                                </div>
+
+                            </div>
+
+
+                            <div class="container-qs-d row m-0"> <!-- m-0 needed as row causes x scroll to appear -->
+
+                                <div>
+                                    3 x Irregular sized labels
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                    <div class="adhoc-input flex-row  mt-auto">
+                                        01To be, or not to be: that is the question: Whether 'tis
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-start">
+                                        <input type="number" id="quantity" name="quantity" min="1" max="5">
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                    <div class="adhoc-input flex-row  mt-auto">
+                                        02To be, or not to be: that is the question: Whether 'tis nobler
+                                        in the mind to suffer / The
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-center">
+                                        <input type="text" name="telephone" maxlength="20" size="24">
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                        <div class="adhoc-input flex-row ">03To be </div>
+                                    </div>
+
+                                    <div class="adhoc-input d-flex flex-row justify-content-end">
+                                        <textarea rows="2" cols="50"></textarea>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    3 x Irregular sized textarea
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                        <div class="adhoc-input flex-row ">04To be </div>
+                                    </div>
+
+                                    <div class="adhoc-input d-flex flex-row justify-content-end">
+                                        <textarea rows="2" cols="50"></textarea>
+                                    </div>
+                                </div>
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                        <div class="adhoc-input flex-row ">05To be, or not to be: that is the
+                                            question:
+                                            Whether 'tis nobler in the mind to suffer / The slings </div>
+                                    </div>
+
+                                    <div class="adhoc-input d-flex flex-row justify-content-end">
+                                        <textarea rows="3" cols="50"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}  ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                        <div class="adhoc-input flex-row ">06To be </div>
+                                    </div>
+
+                                    <div class="adhoc-input d-flex flex-row justify-content-end">
+                                        <textarea rows="4" cols="50"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm1 }} ">
+                                    <div class="adhoc-label flex-row mt-auto">
+                                        07To be, or not to be: that
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-center">
+                                        <input type="text" name="telephone" maxlength="20" size="24">
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
+                                    <div class="adhoc-label flex-row mt-auto">
+                                        08To be, or not to be: that
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-center">
+                                        <input type="text" name="telephone" maxlength="20" size="24">
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                        <div class="d-flex flex-row ">09To be </div>
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-end">
+                                        <input type="text" name="telephone" maxlength="20" size="24">
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
+                                        <div class="d-flex flex-row ">10To be </div>
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-start">
+                                        <input type="text" name="telephone" maxlength="12" size="16">
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-center">
+                                        <div class="d-flex flex-row ">11To be </div>
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-center">
+                                        <input type="text" name="telephone" maxlength="12" size="16">
+                                    </div>
+                                </div>
+
+
+                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                        <div class="d-flex flex-row ">12To be </div>
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-center">
+                                        <input type="text" name="telephone" maxlength="12" size="16">
+                                    </div>
+                                </div>
+
+                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                        <div class="d-flex flex-row ">13To be </div>
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-end">
+                                        <input type="text" name="telephone" maxlength="12" size="16">
+                                    </div>
+                                </div>
+
+
+                            </div> <!-- -->
+
+
+                            <div class="zzcontainer bg-success">
+                                <div class="row m-0 row-cols-2">
+
+                                    <div class="{{ colFitClasses.xs1sm2 }} " style="min-width: 400px;">
+                                        <div class="bg-info ps-0">xs1sm2 Two min-with 400px</div>
+                                    </div>
+                                    <div class="{{ colFitClasses.xs1sm2 }}" style="min-width: 410px;">
+                                        <div class="bg-info">xs1sm2 Two min-with 410px</div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+
+                            <div>
+                                @if(1) {
+                                <latin></latin>
+                                }
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="msn-button-bar">
+                        <!-- 
                             STICKY 
                             buttons to open are hidden when sidebars displayed on larger devices
                                  buttons are fixed left and right
                                
                             -->
-                    <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
-                            class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
+                        <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
+                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
+                                class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
-                    <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
-                        currentBreakpoint}}</span>
+                        <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
+                            currentBreakpoint}}</span>
 
-                    <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
-                            class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
+                        <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
+                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
+                                class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
 
+                    </div>
                 </div>
-  </div>
 
             </mat-sidenav-content>
 
         </mat-sidenav-container>
 
     </div>
-
-  <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded  ms-1 me-1 flex-shrink-0">
+ 
+    <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded ms-1 me-1 flex-shrink-0">
         <a class="navbar-brand ms-2" href="#">Status</a>
         <ul class="navbar-nav">
 
