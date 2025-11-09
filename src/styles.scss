@@ -24,7 +24,7 @@
 //:root {
     // promote to root later
 
-    --msc-top: 80px; // var(--msc-top, 80px)
+    --msc-top: 70px; // var(--msc-top, 80px)
     // msn mat side nav
     --msn-bg-color: aquamarine; // var(--msn-bg-color, red)
     --msn-bg-width: 180px; // var(--msn-bg-width, 180px)
@@ -226,7 +226,7 @@ originally status nav content
 
 .mat-sidenav-container-main {
     position: absolute;
-    top: var(--msc-top, 80px); // allow for navbar(s)
+    top: var(--msc-top, 70px); // allow for navbar(s)
     bottom: 0;
     left: 0;
     right: 0;
@@ -253,13 +253,15 @@ originally status nav content
     justify-content: space-between;
 }
 
+ 
 .msn-side-default {
     background-color: var(--msn-bg-color, white);
     width: var(--msn-bg-width, 180px);
 }
 
 
-.msn-btn-default {
+.msn-btn-default,
+.msn-btn-close {
     //  position: absolute;
     //  top:-10px;
 
@@ -330,8 +332,7 @@ originally status nav content
     margin-top: 10px;
 }
 
-
-
+ 
 /*
     Adhoc Questions
  */

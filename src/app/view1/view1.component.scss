@@ -1,10 +1,11 @@
+ 
  .mat-sidenav-container-main {
-     position: absolute;
-     top: 70px; // allow for navbar
-     bottom: 0;
-     left: 0;
-     right: 0;
- }
+    position: absolute;
+    top: var(--msc-top, 80px); // allow for navbar(s)
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
  .mat-sidenav-default {
      background-color: mediumpurple;

@@ -1,30 +1,6 @@
-:host {
-    // promote to root later
+ 
 
-    --msc-top: 80px; // var(--msc-top, 80px)
-    // msn mat side nav
-    --msn-bg-color: aquamarine; // var(--msn-bg-color, red)
-    --msn-bg-width: 180px; // var(--msn-bg-width, 180px)
-    --msn-btn-rounding: 16px; // var(--msn-btn-rounding, 16px)
-    --msn-btn-bg-hover: aquamarine; // var(--msn-btn-bg-hover, aquamarine)
-    --msn-btn-hover-padding: 10px; // var(--msn-btn-hover-padding, 10px) // allows a visual flick jump
-    --msn-btn-color: mediumpurple; // var(--msn-bg-color, red)
-    --msn-btn-arrow-size-font-size: 16px; // var(--msn-btn-arrow-size-font-size, 20px)
-
-    --msn-btn-bg-color: white; // var(--msn-btn-bg-color, white)
-    --msn-btn-transition: ease-in-out 0.8s; // var(--msn-btn-transition,    ease-in-out 0.8s)
-
-    ;
-
-
-    // msc mat sidenav content in the middle i.e. essentially the main content body
-    --msc-padding: 6px; // var(--msc-padding, 8px)
-    --msc-bg-color: white; // var(--msc-bg-color, red)
-}
-
-.hidden {
-    display: none !important;
-}
+ 
 
 /* the container for the sidebars and the centre content */
 
@@ -38,10 +14,7 @@
 
  
 // unicode arrows
-.msn-arrow-size {
-    font-size: var(--msn-btn-arrow-size-font-size, 20px);
-}
-
+ 
 .msn-start {
     // left side
     padding-right: 0;
@@ -61,7 +34,6 @@
     background-color: var(--msn-bg-color, white);
     width: var(--msn-bg-width, 180px);
 }
-
 
 .msn-btn-default {
     //  position: absolute;
