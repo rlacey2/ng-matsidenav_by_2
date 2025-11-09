@@ -4,10 +4,11 @@ import { MatSidenavContainer, MatSidenav, MatSidenavContent } from "@angular/mat
 import { ROUTER_OUTLET_DATA } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { GenericDialogComponent } from '../dialogs/generic/genericdialog.component';
-
+import { RouterLink } from '@angular/router';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
+import {CdkScrollable} from '@angular/cdk/scrolling';
 
 
 /** @title Implicit main content with two sidenavs */
@@ -15,7 +16,7 @@ import { BreakpointService } from '../services/bpo';
   selector: 'status',
   templateUrl: 'status.component.html',
   styleUrls: ['status.component.scss'],
-  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent],
+  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink]
 })
 export class StatusComponent {
 
@@ -34,9 +35,8 @@ export class StatusComponent {
   private destroy$ = new Subject<void>(); // use as takeUntil flag
 
   subs: Subscription[] = [];
-  
- 
-  public myBreakpoints: any = {
+
+    public myBreakpoints: any = {
     xs: "(max-width: 565px)",
     sm: "(min-width: 566px) and (max-width: 767px)",
     md: "(min-width: 768px) and (max-width: 991px)",
@@ -47,6 +47,21 @@ export class StatusComponent {
   Breakpoints = Breakpoints;
   currentBreakpoint: string = ''; // min max string
   currentBreakpointKey: string = ''
+
+
+
+    colFitClasses = {
+    // xs cols folloed by > sm 
+    
+    xs1sm1: "col-12 ",
+    xs2sm4: "col-6 col-sm-3 ",
+    xs1sm2: "col-12 col-sm-6 ",
+    xs1sm3: "col-12 col-sm-4 ",
+
+  }
+
+  
+ 
 
  
  // bpNative
@@ -202,6 +217,7 @@ export class StatusComponent {
       maxHeight: "100%",
       disableClose: true, // only the cancel button closes the dialog when true
       //   panelClass: 'bg-danger'
+      data : { height: "calc(100% - 15px)", title : 'SOME TITLE' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
