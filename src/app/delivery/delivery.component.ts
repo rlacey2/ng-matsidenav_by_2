@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 
 
 @Component({
-  selector: 'app-delivery.d-flex.flex-column.overflow-hidden.h-100',
+  selector: 'app-delivery.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
   templateUrl: './delivery.component.html',
   styleUrl: './delivery.component.scss',
   standalone: true,

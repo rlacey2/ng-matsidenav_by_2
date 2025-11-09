@@ -17,7 +17,7 @@ import { LatinComponent } from "../_utility/latin.component";
 
 /** @title Implicit main content with two sidenavs */
 @Component({
-  selector: 'status.d-flex.flex-column.overflow-hidden.h-100',
+  selector: 'status.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
   templateUrl: 'status.component.html',
   styleUrls: [ 'status.component.scss'],
   imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent]

@@ -12,7 +12,7 @@ import {CdkScrollable} from '@angular/cdk/scrolling';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-view4.d-flex.flex-column.overflow-hidden.h-100',
+  selector: 'app-view4.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
   imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent],
   templateUrl: './view4.component.html',
   styleUrl: './view4.component.scss',

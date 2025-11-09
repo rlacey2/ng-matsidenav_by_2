@@ -14,7 +14,7 @@ import { Subject, Subscription } from 'rxjs';
 
 @Component({
   // NB need the h-100 here to put component footer at bottom of view, if missing it moves up
-  selector: 'app-genericdialog.d-flex.flex-column.overflow-hidden.h-100',
+  selector: 'app-genericdialog.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
   imports: [MatDialogClose, MatButtonModule, SafePipe, MatSidenavContainer, MatSidenavContent, MatSidenav],
   standalone: true,
   templateUrl: './genericdialog.component.html',
