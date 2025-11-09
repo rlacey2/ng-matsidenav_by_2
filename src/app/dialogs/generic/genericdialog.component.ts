@@ -62,7 +62,7 @@ export class GenericDialogComponent {
     xl: "(min-width: 1200px)"
   };
 
-  Breakpoints = Breakpoints;
+  
   currentBreakpoint: string = ''; // min max string
   currentBreakpointKey: string = ''
 

@@ -9,21 +9,18 @@ import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
 import {CdkScrollable} from '@angular/cdk/scrolling';
+import { FormControl } from '@angular/forms';
 
- 
-
-
-
-/** @title Implicit main content with two sidenavs */
 @Component({
-  selector: 'status',
-  templateUrl: 'status.component.html',
-  styleUrls: [ 'status.component.scss'],
-  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink]
+  selector: 'app-view3.d-flex.flex-column.overflow-hidden.h-100',
+  imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent],
+  templateUrl: './view3.component.html',
+  styleUrl: './view3.component.scss',
 })
-export class StatusComponent {
 
-  public dialog = inject(MatDialog)
+export class View3Component {
+ 
+ public dialog = inject(MatDialog)
   outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
   private breakpointObserver = inject(BreakpointObserver)
   bps = inject(BreakpointService)

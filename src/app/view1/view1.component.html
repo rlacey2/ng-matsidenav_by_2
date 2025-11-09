@@ -7,6 +7,8 @@
             <li><a [routerLink]="['']">Status</a></li>
             <li><a [routerLink]="['/view1']">View 1</a></li>
             <li><a [routerLink]="['/view2']">View 2</a></li>
+            <li><a [routerLink]="['/view3']">View 3</a></li>
+            <li><a [routerLink]="['/view4']">View 4</a></li>
             <li><a [routerLink]="['/delivery']">Delivery</a></li>
             <li><a [routerLink]="['/grid']">Grid</a></li>
 
@@ -23,7 +25,7 @@
         <!-- a row of 3 items, each of which is a column -->
 
         <mat-sidenav-container class="mat-sidenav-container-main row">
-            <mat-sidenav #sidenav1 opened [mode]="mode1.value" position="start" class="mat-sidenav-default  ">
+            <mat-sidenav #matsidenav1 opened [mode]="mode1.value" position="start" class="mat-sidenav-default  ">
                 <button mat-button (click)="toggleSideNav('#sidenav1')" class="toggle-default toggle1">T1 -> </button>
                 <button mat-button (click)="toggleSideNav('#sidenav2')" class="toggle-default toggle2"><- T2</button>
                         <p>
@@ -177,7 +179,7 @@ The End
         
             </mat-sidenav-content>
 
-            <mat-sidenav #sidenav2 opened [mode]="mode2.value" position="end" class="mat-sidenav-default  ">
+            <mat-sidenav #matsidenav2 opened [mode]="mode2.value" position="end" class="mat-sidenav-default  ">
                 <button mat-button (click)="toggleSideNav('#sidenav1')" class="toggle-default toggle1">T1 -> </button>
                 <button mat-button (click)="toggleSideNav('#sidenav2')" class="toggle-default toggle2"><- T2</button>
 

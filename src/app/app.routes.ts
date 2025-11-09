@@ -46,6 +46,18 @@ export const routes: Routes = [
     },
 
     {
+        path: 'view3',
+          loadComponent: () => import('./view3/view3.component').then(a => a.View3Component),
+        title: 'view3',
+    },
+
+      {
+        path: 'view4',
+          loadComponent: () => import('./view4/view4.component').then(a => a.View4Component),
+        title: 'view4',
+    },
+
+    {
         path: 'delivery',
         component: DeliveryComponent,
         title: 'delivery',

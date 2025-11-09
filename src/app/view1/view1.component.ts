@@ -17,14 +17,14 @@ import { Subscription } from 'rxjs';
 export class View1Component {
 
   subs: Subscription[] = [];
-  mode_default = 'push'
+  mode_default = 'side'
 
   mode1: FormControl = new FormControl(this.mode_default);  // side over push
   mode2: FormControl = new FormControl(this.mode_default); // side over push
 
 
-  @ViewChild('sidenav1') sidenav1!: MatSidenav;
-  @ViewChild('sidenav2') sidenav2!: MatSidenav;
+  @ViewChild('matsidenav1') sidenav1!: MatSidenav;
+  @ViewChild('matsidenav2') sidenav2!: MatSidenav;
   public observer = inject(BreakpointObserver)
 
   ngAfterViewInit() {
@@ -44,8 +44,8 @@ this.subs.push(
           this.sidenav2.close();
           this.sidenav1.close();
         } else {
-          this.sidenav1.mode = 'push'; // side
-          this.sidenav2.mode = 'push'; // side
+          this.sidenav1.mode = 'side'; // side
+          this.sidenav2.mode = 'side'; // side
           this.sidenav1.open();
           this.sidenav2.open();
         }
