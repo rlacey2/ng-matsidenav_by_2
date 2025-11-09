@@ -7,8 +7,8 @@ import { DOCUMENT } from '@angular/common';
 
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
+  selector: 'app-header', // <app-header></app-header></app-header>
+  standalone: true, 
   imports: [MatButtonModule, MatMenuModule, MatIconModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

@@ -1,240 +1,34 @@
 <div class="hg-view-container d-flex flex-column overflow-hidden flex-grow-1">
 
     <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded  ms-1 me-1 flex-shrink-0">
-        <a class="navbar-brand ms-2" href="#">VIEW4</a>
+        <a class="navbar-brand ms-2">View4</a>
         <ul class="navbar-nav">
-            <li><a [routerLink]="['']">Status</a></li>
-            <li><a [routerLink]="['/view1']">View 1</a></li>
-            <li><a [routerLink]="['/view2']">View 2</a></li>
-            <li><a [routerLink]="['/view3']">View 3</a></li>
-            <li><a [routerLink]="['/view4']">View 4</a></li>
-            <li><a [routerLink]="['/delivery']">Delivery</a></li>
-            <li><a [routerLink]="['/grid']">Grid</a></li>
 
         </ul>
-        <!-- 
+        <!--  
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="#" class="nav-link">Options</a></li>
             </ul>
             -->
     </nav>
 
-    <div class="hg-view-content d-flex flex-row flex-grow-1 overflow-hidden ms-1 pe-1">
+    <div class="hg-view-content d-flex flex-column flex-grow-1 overflow-hidden ms-1 pe-1">
         <!-- 100 view and centre scoll -->
-        <!-- a row of 3 items, each of which is a column -->
 
-        <div class="hg-view-body order-2 d-flex flex-column w-100 ms-0">
-            <!-- centre item, is a column itself-->
+        <mat-sidenav-container class="mat-sidenav-container-main ">
 
-            @if( true || false) {
-            <div
-                class='hg-view-body-sticky-header row flex-shrink-0 bg-secondary bg-gradient text-white rounded ms-1 me-1'>
-                <div class="">
-                    Body Sticky Header View 4
-                </div>
-            </div>
-        }
-            <div
-                class="hg-view-body-top-content d-flex flex-column flex-grow-1 scroll-y mh-100  rounded ms-1 me-1 ps-2 pe-2 ">
+            <mat-sidenav #matsidenav1 opened mode="side" position="start" class="msn-side-default msn-start">
+                <div class="d-flex flex-column ">
+                    <button aria-label="Close Left Drawer" mat-button (click)="toggle_msn_single(matsidenav1)"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-left ms-auto">
+                        <span class="msn-arrow-size msn-btn-facing-left">&#8612;</span>
+                    </button>
+                    <div class="msn-side-links">
+                        <div class="hg-sb hg-sb1 mh-100 scroll-y  ps-1 pb-3"> <!-- pb-3 for scrolling at bottom -->
 
-                <!-- the component body structure is inserted within this div to have sticky header and fiiter -->
-
-                <h6>Main scollable body View 4</h6>
-
-
-                @if(true || false) {
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt
-                    mollit anim id est laborum.
-                </p>
-
-                The End
-                }
-
-            </div>
-
-            @if( true || false) {
-            <div
-                class='hg-view-body-sticky-footer row flex-shrink-0 bg-secondary bg-gradient text-white rounded ms-1 me-1'>
-                <div class="">
-                    Body Sticky Footer View 4
-                </div>
-            </div>
-        }
-
-        </div>
-
-        <div class="hg-sb hg-sb1 order-1 col-2 mh-100 scroll-y  ps-1">
-            <h6 class="mt-1">Sidebar1</h6>
-            <ul class="nav flex-column">
-                <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
+                            <h6 class="mt-1">Sidebar1</h6>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
                                 <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
                                 </li>
                                 <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a>
@@ -243,27 +37,93 @@
                                 </li>
                                 <li class="nav-item"><a [routerLink]="['/view4']" class="nav-link">View 4</a>
                                 </li>
-                <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a></li>
-                <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link6</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link7</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link8</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link9</a>
-                </li>
-            </ul>
-        </div>
+                                <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
 
-        <div class="hg-sb hg-sb2 order-3 col-2 mh-100 scroll-y  ps-1">
-            <h6 class="mt-1">Sidebar2</h6>
-            <ul class="nav flex-column">
-                <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </mat-sidenav>
+
+            <mat-sidenav #matsidenav2 opened mode="side" position="end" class="msn-side-default msn-end">
+
+                <div class="d-flex flex-column">
+
+                    <button aria-label="Close Right Drawer" mat-button (click)="toggle_msn_single(matsidenav2)"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-right me-auto"><span
+                            class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
+
+                    <div class="msn-side-links">
+                        <div class="hg-sb hg-sb1 mh-100 scroll-y  ps-1 pb-3"> <!-- pb-3 for scrolling at bottom -->
+
+                            <h6 class="mt-1">Sidebar2</h6>
+
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
                                 <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
                                 </li>
                                 <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a>
@@ -272,22 +132,116 @@
                                 </li>
                                 <li class="nav-item"><a [routerLink]="['/view4']" class="nav-link">View 4</a>
                                 </li>
-                <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a></li>
-                <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link6</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link7</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link8</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link9</a>
-                </li>
-            </ul>
-        </div>
+                                <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </mat-sidenav>
+
+            <mat-sidenav-content class="msc h-100 d-flex flex-column">
+
+                <!-- vh-100 pb-3 needed for safe 100% scrolling -->
+
+                <div class="  d-flex flex-column flex-grow-1 scroll-y mh-100  rounded ms-1 me-1 ps-2 pe-2 pb-5">
+
+                <div class="msn-button-bar">
+                    <!-- 
+                            STICKY 
+                            buttons to open are hidden when sidebars displayed on larger devices
+                                 buttons are fixed left and right
+                               
+                            -->
+                    <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
+                            class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
+
+                    <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
+                        currentBreakpoint}}</span>
+
+                    <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
+                            class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
+
+                </div>
+
+                    <div class="scroll-y vh-100 pb-5 pe-1"> <!-- vh-100 very important-->
+
+
+                        <h1>Some content</h1>
+                    </div>
+
+                </div>
+
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
 
     </div>
 

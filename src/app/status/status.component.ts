@@ -9,6 +9,7 @@ import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
 import {CdkScrollable} from '@angular/cdk/scrolling';
+import { LatinComponent } from "../_utility/latin.component";
 
  
 
@@ -19,7 +20,7 @@ import {CdkScrollable} from '@angular/cdk/scrolling';
   selector: 'status',
   templateUrl: 'status.component.html',
   styleUrls: [ 'status.component.scss'],
-  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink]
+  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent]
 })
 export class StatusComponent {
 
@@ -33,7 +34,7 @@ export class StatusComponent {
 
   // assuming side until told otherwise
   mode_default = 'side' // prevents button flicker in and out on larger devices 
-  sidenav_mode: string = "side"; // store whether side || over
+  sidenav_mode: string = "side"; // store whether side || over || slide
   currentState: string = 'Idle';
   private destroy$ = new Subject<void>(); // use as takeUntil flag
 
@@ -62,13 +63,7 @@ export class StatusComponent {
     xs1sm3: "col-12 col-sm-4 ",
 
   }
-
-  
  
-
- 
- // bpNative
-
   //readonly breakpoint$;
 
   constructor() {
@@ -156,7 +151,9 @@ export class StatusComponent {
       case "xs":
       case "sm":
       case "md":
-        this.toggle_msn_mode_bothsides('over', false); // move the matSideNavs out of view
+        // over places a shaded backdrop to behave like a dialog
+        // over || slide 
+        this.toggle_msn_mode_bothsides('slide', false); // move the matSideNavs out of view
         break;
       default:
         this.toggle_msn_mode_bothsides('side', true);
@@ -191,18 +188,7 @@ export class StatusComponent {
     else {
       x.open()
     }
-
-
-    /*
-    if (x.mode === "over") {
-      x.mode = "side"
-      x.open();
-    }
-    else {
-      x.mode = "over"
-      x.close();
-    }
-      */
+ 
   }
 
  

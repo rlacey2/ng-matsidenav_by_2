@@ -25,12 +25,26 @@
         <!-- a row of 3 items, each of which is a column -->
 
         <mat-sidenav-container class="mat-sidenav-container-main row">
-            <mat-sidenav #matsidenav1 opened [mode]="mode1.value" position="start" class="mat-sidenav-default  ">
+            <mat-sidenav #matsidenav1 opened [mode]="mode1.value" position="start" class="mat-sidenav-default">
                 <button mat-button (click)="toggleSideNav('#sidenav1')" class="toggle-default toggle1">T1 -> </button>
                 <button mat-button (click)="toggleSideNav('#sidenav2')" class="toggle-default toggle2"><- T2</button>
                         <p>
-                            <mat-radio-group class="example-radio-group" [formControl]="mode1">
+                            <mat-radio-group class="mode-radio-group" [formControl]="mode1">
                                 <label>Mode:</label>
+                                <mat-radio-button value="over">Over</mat-radio-button>
+                                <mat-radio-button value="side">Side</mat-radio-button>
+                                <mat-radio-button value="push">Push</mat-radio-button>
+                            </mat-radio-group>
+                        </p>
+            </mat-sidenav>
+
+           <mat-sidenav #matsidenav2 opened [mode]="mode2.value" position="end" class="mat-sidenav-default">
+                <button mat-button (click)="toggleSideNav('#sidenav1')" class="toggle-default toggle1">T1 -> </button>
+                <button mat-button (click)="toggleSideNav('#sidenav2')" class="toggle-default toggle2"><- T2</button>
+ 
+                        <p>
+                            <mat-radio-group class="mode-radio-group" [formControl]="mode2">
+                                <label>Mode2:</label>
                                 <mat-radio-button value="over">Over</mat-radio-button>
                                 <mat-radio-button value="side">Side</mat-radio-button>
                                 <mat-radio-button value="push">Push</mat-radio-button>
@@ -40,9 +54,8 @@
 
             <mat-sidenav-content class="h-100 d-flex flex-column">
 
-   
             <div
-                class="hg-view-body-top-content d-flex flex-column flex-grow-1 scroll-y mh-100 bg-primary bg-gradient rounded ms-1 me-1 ps-2 pe-2 ">
+                class="hg-view-body-top-content d-flex flex-column flex-grow-1 scroll-y mh-100 rounded ms-1 me-1 ps-2 pe-2 ">
  
               <div class="button-container">
                     <button mat-button (click)="sidenav1.toggle()" class="toggle-default toggle1">T1 -> </button>
@@ -50,126 +63,14 @@
                 </div>
 
                 <div class="QWERTYU vh-100 scroll-y p-3" >  <!-- vh-100 pb-5 needed for safe 100% scrolling -->
-                    <div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        @if(true || false) {
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                            mollit anim id est laborum.
-                        </p>
-The End
-                        }
-                            
+               
+                    <div class="bg-success bg-gradient text-white">
+                         Used to test ideas, not in finished state, T2 and side2 not using 'side', wasted too much time on why, when status view is as expected
                     </div>
+                    @if(1) {
+                        <latin></latin>
+                    }
+                    
                 </div>
 
 
@@ -179,19 +80,8 @@ The End
         
             </mat-sidenav-content>
 
-            <mat-sidenav #matsidenav2 opened [mode]="mode2.value" position="end" class="mat-sidenav-default  ">
-                <button mat-button (click)="toggleSideNav('#sidenav1')" class="toggle-default toggle1">T1 -> </button>
-                <button mat-button (click)="toggleSideNav('#sidenav2')" class="toggle-default toggle2"><- T2</button>
+ 
 
-                        <p>
-                            <mat-radio-group class="example-radio-group" [formControl]="mode2">
-                                <label>Mode2:</label>
-                                <mat-radio-button value="over">Over</mat-radio-button>
-                                <mat-radio-button value="side">Side</mat-radio-button>
-                                <mat-radio-button value="push">Push</mat-radio-button>
-                            </mat-radio-group>
-                        </p>
-            </mat-sidenav>
         </mat-sidenav-container>
 
     </div>

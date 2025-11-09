@@ -14,7 +14,7 @@
 
     <div class="hg-view-content d-flex flex-column flex-grow-1 overflow-hidden ms-1 pe-1">
         <!-- 100 view and centre scoll -->
-
+        @if(1) {
         <mat-sidenav-container class="mat-sidenav-container-main ">
 
             <mat-sidenav #matsidenav1 opened mode="side" position="start" class="msn-side-default msn-start">
@@ -211,30 +211,32 @@
 
                 <div class="  d-flex flex-column flex-grow-1 scroll-y mh-100  rounded ms-1 me-1 ps-2 pe-2 pb-5">
 
-                <div class="msn-button-bar">
-                    <!-- 
+                    <div class="msn-button-bar">
+                        <!-- 
                             STICKY 
                             buttons to open are hidden when sidebars displayed on larger devices
                                  buttons are fixed left and right
                                
                             -->
-                    <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
-                            class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
+                        <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
+                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
+                                class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
-                    <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
-                        currentBreakpoint}}</span>
+                        <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
+                            currentBreakpoint}}</span>
 
-                    <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
-                            class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
+                        <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
+                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
+                                class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
 
-                </div>
+                    </div>
 
-                    <div class="scroll-y vh-100 pb-5 pe-1"> <!-- vh-100 very important-->
+                    <div class="scroll-y vh-100 pb-1 pe-1"> <!-- vh-100 very important-->
 
 
                         <h1>Some content</h1>
+
+                          <latin></latin>
                     </div>
 
                 </div>
@@ -242,7 +244,25 @@
             </mat-sidenav-content>
 
         </mat-sidenav-container>
+        }
+        @if(0) {
+        <div class="scroll-y zzvh-100 pb-1 pe-1"> <!-- vh-100 very important-->
 
+            <latin></latin>
+
+        </div>
+
+        }
     </div>
+    <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded  ms-1 me-1 flex-shrink-0">
+        <a class="navbar-brand ms-2">View3</a>
+        <ul class="navbar-nav">
 
+        </ul>
+        <!--  
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="#" class="nav-link">Options</a></li>
+            </ul>
+            -->
+    </nav>
 </div>

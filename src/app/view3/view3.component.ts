@@ -10,10 +10,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
 import {CdkScrollable} from '@angular/cdk/scrolling';
 import { FormControl } from '@angular/forms';
+import { LatinComponent } from "../_utility/latin.component";
 
 @Component({
   selector: 'app-view3.d-flex.flex-column.overflow-hidden.h-100',
-  imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent],
+  imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent, LatinComponent],
   templateUrl: './view3.component.html',
   styleUrl: './view3.component.scss',
 })
