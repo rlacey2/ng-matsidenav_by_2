@@ -176,6 +176,11 @@ mat-form-field:hover {
     //  border-color: #e0564f;
 }
 
+.hidden {
+    display: none !important;
+}
+
+
 
 /* responsive header/navbar */
 /*           >       >           >          >           >            > 
@@ -216,52 +221,25 @@ originally status nav content
 
 */
 
+ /* the container for the sidebars and the centre content */
 
-
-.hidden {
-    display: none !important;
-}
-
-/* the container for the sidebars and the centre content */
-
-.mat-sidenav-container-main {
-    position: absolute;
-  //  top: var(--msc-top, 70px); // allow for navbar(s)
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-
+ 
+ 
 // unicode arrows
-.msn-arrow-size {
-    font-size: var(--msn-btn-arrow-size-font-size, 20px);
-}
-
-.msn-start {
-    // left side
-    padding-right: 0;
-}
-
-.msn-end {
-    // left side
-    padding-right: 0;
-}
+ 
+ 
 
 .msn-button-bar {
     display: flex;
     justify-content: space-between;
 }
 
- 
 .msn-side-default {
     background-color: var(--msn-bg-color, white);
     width: var(--msn-bg-width, 180px);
 }
 
-
-.msn-btn-default,
-.msn-btn-close {
+.msn-btn-default {
     //  position: absolute;
     //  top:-10px;
 
@@ -273,9 +251,8 @@ originally status nav content
     background-color: var(--msn-btn-bg-hover, aquamarine);
 }
 
-.msnbtn1 {
-    // left side
-    position: fixed; // ensure the button stays in place when scrolling
+.msnbtn1 { // left side
+    position: fixed;    // ensure the button stays in place when scrolling
     left: 0;
     margin-left: 2px;
     padding-left: 3px;
@@ -285,9 +262,8 @@ originally status nav content
     border-left: 0;
 }
 
-.msnbtn2 {
-    // right side
-    position: fixed; // ensure the button stays in place when scrolling
+.msnbtn2 { // right side
+    position: fixed;    // ensure the button stays in place when scrolling
     right: 0;
     margin-right: 2px;
     padding-left: 5px;
@@ -313,25 +289,27 @@ originally status nav content
     padding-right: var(--msc-padding, 8px);
     padding-bottom: var(--msc-padding, 8px);
     background-color: var(--msc-bg-color, red);
-}
+ }
 
-.msn-btn-close-left {
-    float: right;
-    top: 0;
-    border-top-left-radius: var(--msn-btn-rounding, 10px);
+ .msn-btn-close-left {
+   float: right;
+   top: 0;
+     border-top-left-radius: var(--msn-btn-rounding, 10px);
     border-bottom-left-radius: var(--msn-btn-rounding, 10px);
-}
+ }
 
-.msn-btn-close-right {
+ .msn-btn-close-right {
     float: left;
-    border-top-right-radius: var(--msn-btn-rounding, 10px);
+        border-top-right-radius: var(--msn-btn-rounding, 10px);
     border-bottom-right-radius: var(--msn-btn-rounding, 10px);
-}
+ }
 
-.msn-side-links {
+ .msnside-links {
     margin-top: 10px;
-}
+ }
 
+/////
+ 
  
 /*
     Adhoc Questions
@@ -353,4 +331,20 @@ originally status nav content
 .ahdoc-label {
     display: flex !important;
     flex-direction: row !important;
+}
+
+
+/*  
+for dialogs 
+*/
+
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700 !important;
+  padding-top: 4px;
+  padding-right: 6px;
+  padding-left: 6px;
+  padding-bottom: 2px;
+ // background-color: red;
 }

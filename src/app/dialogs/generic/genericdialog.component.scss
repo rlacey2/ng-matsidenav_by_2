@@ -1,9 +1,90 @@
-.dialogHeader {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 700 !important;
-  padding-top: 4px;
-  padding-right: 6px;
-  padding-left: 6px;
-  padding-bottom: 2px;
+ 
+
+ 
+
+/* the container for the sidebars and the centre content */
+
+ 
+ 
+// unicode arrows
+ 
+ 
+
+.msn-button-bar {
+    display: flex;
+    justify-content: space-between;
 }
+
+.msn-side-default {
+    background-color: var(--msn-bg-color, white);
+    width: var(--msn-bg-width, 180px);
+}
+
+.msn-btn-default {
+    //  position: absolute;
+    //  top:-10px;
+
+    background-color: var(--msn-btn-bg-color, red);
+    transition: var(--msn-btn-transition, ease-in-out 0.8s)
+}
+
+.msn-btn-default:hover {
+    background-color: var(--msn-btn-bg-hover, aquamarine);
+}
+
+.msnbtn1 { // left side
+    position: fixed;    // ensure the button stays in place when scrolling
+    left: 0;
+    margin-left: 2px;
+    padding-left: 3px;
+    padding-right: 5px;
+    border-top-right-radius: var(--msn-btn-rounding, 10px);
+    border-bottom-right-radius: var(--msn-btn-rounding, 10px);
+    border-left: 0;
+}
+
+.msnbtn2 { // right side
+    position: fixed;    // ensure the button stays in place when scrolling
+    right: 0;
+    margin-right: 2px;
+    padding-left: 5px;
+    padding-right: 3px;
+    border-top-left-radius: var(--msn-btn-rounding, 10px);
+    border-bottom-left-radius: var(--msn-btn-rounding, 10px);
+    border-right: 0;
+}
+
+.msnbtn1:hover {
+    // may not be relevant for smaller devices when visible as may not use hover
+    padding-left: var(--msn-btn-hover-padding, 10px);
+}
+
+.msnbtn2:hover {
+    padding-right: var(--msn-btn-hover-padding, 10px);
+}
+
+/* main scrollable content */
+.msc {
+    padding-top: 0;
+    padding-left: var(--msc-padding, 8px);
+    padding-right: var(--msc-padding, 8px);
+    padding-bottom: var(--msc-padding, 8px);
+    background-color: var(--msc-bg-color, red);
+ }
+
+ .msn-btn-close-left {
+   float: right;
+   top: 0;
+     border-top-left-radius: var(--msn-btn-rounding, 10px);
+    border-bottom-left-radius: var(--msn-btn-rounding, 10px);
+ }
+
+ .msn-btn-close-right {
+    float: left;
+        border-top-right-radius: var(--msn-btn-rounding, 10px);
+    border-bottom-right-radius: var(--msn-btn-rounding, 10px);
+ }
+
+ .msnside-links {
+    margin-top: 10px;
+ }

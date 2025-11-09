@@ -8,6 +8,7 @@ import { MatSidenav, MatSidenavContainer, MatSidenavContent } from "@angular/mat
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { BreakpointService } from '../../services/bpo';
 import { Subject, Subscription } from 'rxjs';
+import { LatinComponent } from "../../_utility/latin.component";
 
 //import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -15,7 +16,7 @@ import { Subject, Subscription } from 'rxjs';
 @Component({
   // NB need the h-100 here to put component footer at bottom of view, if missing it moves up
   selector: 'app-genericdialog.d-flex.flex-column.overflow-hidden.h-100', // NB these classes to maintain response scrolling
-  imports: [MatDialogClose, MatButtonModule, SafePipe, MatSidenavContainer, MatSidenavContent, MatSidenav],
+  imports: [MatDialogClose, MatButtonModule, SafePipe, MatSidenavContainer, MatSidenavContent, MatSidenav, LatinComponent],
   standalone: true,
   templateUrl: './genericdialog.component.html',
   styleUrl: './genericdialog.component.scss',
@@ -52,8 +53,6 @@ export class GenericDialogComponent {
 
   subs: Subscription[] = [];
 
-
-
   public myBreakpoints: any = {
     xs: "(max-width: 565px)",
     sm: "(min-width: 566px) and (max-width: 767px)",
@@ -62,7 +61,6 @@ export class GenericDialogComponent {
     xl: "(min-width: 1200px)"
   };
 
-  
   currentBreakpoint: string = ''; // min max string
   currentBreakpointKey: string = ''
 
