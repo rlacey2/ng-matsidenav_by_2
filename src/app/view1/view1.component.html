@@ -1,4 +1,4 @@
-<div class="hg-container-view d-flex flex-column overflow-hidden flex-grow-1  ">
+<div class="hg-view-container d-flex flex-column overflow-hidden flex-grow-1">
 
     <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded  ms-5 me-5 flex-shrink-0">
         <a class="navbar-brand ms-2" href="#">VIEW1</a>
@@ -18,7 +18,8 @@
             -->
     </nav>
 
-    <div class="hg-view-content d-flex flex-row flex-grow-1 ms-1 pe-1 overflow-hidden ">
+    <div class="hg-view-content d-flex flex-row flex-grow-1 overflow-hidden ms-1 pe-1"> <!-- 100 view and centre scoll -->
+
         <!-- a row of 3 items, each of which is a column -->
 
         <mat-sidenav-container class="mat-sidenav-container-main row">
@@ -35,13 +36,18 @@
                         </p>
             </mat-sidenav>
 
-            <mat-sidenav-content>
-                <div class="button-container">
+            <mat-sidenav-content class="h-100 d-flex flex-column">
+
+   
+            <div
+                class="hg-view-body-top-content d-flex flex-column flex-grow-1 scroll-y mh-100 bg-primary bg-gradient rounded ms-1 me-1 ps-2 pe-2 ">
+ 
+              <div class="button-container">
                     <button mat-button (click)="sidenav1.toggle()" class="toggle-default toggle1">T1 -> </button>
                     <button mat-button (click)="sidenav2.toggle()" class="toggle-default toggle2"><- T2</button>
                 </div>
 
-                <div class="h-100 scroll-y">
+                <div class="QWERTYU vh-100 scroll-y p-3" >  <!-- vh-100 pb-5 needed for safe 100% scrolling -->
                     <div>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -158,10 +164,17 @@
                             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                             mollit anim id est laborum.
                         </p>
-
+The End
                         }
+                            
                     </div>
                 </div>
+
+
+
+            </div>
+
+        
             </mat-sidenav-content>
 
             <mat-sidenav #sidenav2 opened [mode]="mode2.value" position="end" class="mat-sidenav-default  ">

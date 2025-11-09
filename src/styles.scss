@@ -125,7 +125,7 @@ scrollbar newer browsers
     height: var(--hg-nb-view-local-height);
 }
 
-.hg-container-view {
+.hg-view-container {
     /*  global to all components in router-outlet
       use local component .scss if need to be unique to that component
   */
@@ -166,7 +166,7 @@ scrollbar newer browsers
 
 }
 
-// .hg-container-view 
+// .hg-view-container 
 
 
 mat-form-field:hover {
@@ -226,7 +226,7 @@ originally status nav content
 
 .mat-sidenav-container-main {
     position: absolute;
-    top: var(--msc-top, 70px); // allow for navbar(s)
+  //  top: var(--msc-top, 70px); // allow for navbar(s)
     bottom: 0;
     left: 0;
     right: 0;

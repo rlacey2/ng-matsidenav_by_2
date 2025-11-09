@@ -1,4 +1,4 @@
-<div class="hg-container-view d-flex flex-column overflow-hidden flex-grow-1  ">
+<div class="hg-view-container d-flex flex-column overflow-hidden flex-grow-1">
 
     <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded  ms-1 me-1 flex-shrink-0">
         <a class="navbar-brand ms-2" href="#">Status</a>
@@ -12,525 +12,535 @@
             -->
     </nav>
 
-    <div class="hg-view-content d-flex flex-row flex-grow-1 ms-1 pe-1 xxoverflow-hidden">
+    <div class="hg-view-content d-flex flex-column flex-grow-1 overflow-hidden ms-1 pe-1">
+        <!-- 100 view and centre scoll -->
 
-        <div>
-            <div>
-                <mat-sidenav-container class="mat-sidenav-container-main">
+        <mat-sidenav-container class="mat-sidenav-container-main ">
 
-                    <mat-sidenav #matsidenav1 opened mode="side" position="start" class="msn-side-default msn-start">
-                        <div class="d-flex flex-column ">
-                            <button aria-label="Close Left Drawer" mat-button (click)="toggle_msn_single(matsidenav1)"
-                                [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-left ms-auto">
-                                <span class="msn-arrow-size msn-btn-facing-left">&#8612;</span>
-                            </button>
-                            <div class="msn-side-links">
-                                <div class="hg-sb hg-sb1 mh-100 scroll-y  ps-1">
+            <mat-sidenav #matsidenav1 opened mode="side" position="start" class="msn-side-default msn-start">
+                <div class="d-flex flex-column ">
+                    <button aria-label="Close Left Drawer" mat-button (click)="toggle_msn_single(matsidenav1)"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-left ms-auto">
+                        <span class="msn-arrow-size msn-btn-facing-left">&#8612;</span>
+                    </button>
+                    <div class="msn-side-links">
+                        <div class="hg-sb hg-sb1 mh-100 scroll-y  ps-1">
 
-                                    <h6 class="mt-1">Sidebar1</h6>
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
-                                        <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
-                                        </li>
-                                        <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a>
-                                        </li>
-                                        <li class="nav-item"><a [routerLink]="['/delivery']"
-                                                class="nav-link">Delivery</a></li>
-                                        <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link6</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link7</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link8</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link9</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link6</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link7</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link8</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link9</a>
-                                        </li>
+                            <h6 class="mt-1">Sidebar1</h6>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
+                                <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link6</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link7</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link8</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link9</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link6</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link7</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link8</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link9</a>
-                                        </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
 
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link6</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link7</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link8</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">Link9</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link6</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link7</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link8</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link9</a>
+                                </li>
+                            </ul>
                         </div>
-                    </mat-sidenav>
+                    </div>
 
-                    <mat-sidenav #matsidenav2 opened mode="side" position="end" class="msn-side-default msn-end">
+                </div>
+            </mat-sidenav>
 
-                        <div class="d-flex flex-column">
+            <mat-sidenav #matsidenav2 opened mode="side" position="end" class="msn-side-default msn-end">
 
-                            <button aria-label="Close Right Drawer" mat-button (click)="toggle_msn_single(matsidenav2)"
-                                [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-right me-auto"><span
-                                    class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
+                <div class="d-flex flex-column">
 
-                            <div class="msn-side-links">
-                                <div class="hg-sb hg-sb1 mh-100 scroll-y  ps-1">
+                    <button aria-label="Close Right Drawer" mat-button (click)="toggle_msn_single(matsidenav2)"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-right me-auto"><span
+                            class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
-                                    <h6 class="mt-1">Sidebar1</h6>
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
-                                        <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
-                                        </li>
-                                        <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a>
-                                        </li>
-                                        <li class="nav-item"><a [routerLink]="['/delivery']"
-                                                class="nav-link">Delivery</a></li>
-                                        <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
+                    <div class="msn-side-links">
+                        <div class="hg-sb hg-sb1 mh-100 scroll-y  ps-1">
 
-                                    </ul>
-                                </div>
-                            </div>
+                            <h6 class="mt-1">Sidebar1</h6>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a [routerLink]="['']" class="nav-link">Status</a></li>
+                                <li class="nav-item"><a [routerLink]="['/view1']" class="nav-link">View 1</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/view2']" class="nav-link">View 2</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/delivery']" class="nav-link">Delivery</a>
+                                </li>
+                                <li class="nav-item"><a [routerLink]="['/grid']" class="nav-link">Grid</a></li>
 
+                            </ul>
                         </div>
+                    </div>
 
-                    </mat-sidenav>
+                </div>
 
-                    <mat-sidenav-content class="msc d-flex flex-column">
+            </mat-sidenav>
 
-                        <div class="msn-button-bar">
-                            <!-- 
+              <mat-sidenav-content class="msc h-100 d-flex flex-column">
+
+                <!-- vh-100 pb-3 needed for safe 100% scrolling -->
+
+       <div
+                class="  d-flex flex-column flex-grow-1 scroll-y mh-100  rounded ms-1 me-1 ps-2 pe-2 pb-5">
+ 
+                <div class="msn-button-bar">
+                    <!-- 
                             STICKY 
                             buttons to open are hidden when sidebars displayed on larger devices
                                  buttons are fixed left and right
                                
                             -->
-                            <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
-                                [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
-                                    class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
+                    <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
+                            class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
-                            <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
-                                currentBreakpoint}}</span>
+                    <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
+                        currentBreakpoint}}</span>
 
-                            <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
-                                [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
-                                    class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
+                    <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
+                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
+                            class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
+
+                </div>
+
+                <div class="scroll-y vh-100 pb-5 pe-1"> <!-- vh-100 very important-->
+
+                    <div class="a_generic_dialog mt-0">
+                        <div>Generic Dialog</div>
+                        <button mat-button (click)="openDialog()" class="bg-light">Open Dialog</button>
+                    </div>
+
+                    <div>
+                        <div>
+                            ahdoc-container :- one question label and input container <br>
+                            adhoc-label :- label associated with one question<br>
+                            adhoc-input :- linput related to one question<br>
+                            max is 4 columns 1) Can share row 2) never share row on xs etc<br>
+                        </div>
+
+                        <div class="QUESTIONS border border-1 border-dark ">
+
+                            <div class="container-qs-h">
+
+                                <span>
+                                    ccccccc
+                                </span>
+
+                            </div>
+
+                            <div class="container-qs-d">
+                            </div>
 
                         </div>
 
-                        <div class="scroll-y pe-1">
 
-                            <div class="a_generic_dialog mt-0">
-                                <div>Generic Dialog</div>
-                                <button mat-button (click)="openDialog()" class="bg-light">Open Dialog</button>
+                        <div class="container-qs-d row m-0"> <!-- m-0 needed as row causes x scroll to appear -->
+
+                            <div>
+                                3 x Irregular sized labels
+                            </div>
+
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                <div class="adhoc-input flex-row  mt-auto">
+                                    01To be, or not to be: that is the question: Whether 'tis
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-start">
+                                    <input type="number" id="quantity" name="quantity" min="1" max="5">
+                                </div>
+                            </div>
+
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                <div class="adhoc-input flex-row  mt-auto">
+                                    02To be, or not to be: that is the question: Whether 'tis nobler
+                                    in the mind to suffer / The
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-center">
+                                    <input type="text" name="telephone" maxlength="20" size="24">
+                                </div>
+                            </div>
+
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                    <div class="adhoc-input flex-row ">03To be </div>
+                                </div>
+
+                                <div class="adhoc-input d-flex flex-row justify-content-end">
+                                    <textarea rows="2" cols="50"></textarea>
+                                </div>
                             </div>
 
                             <div>
-                                <div>
-                                    ahdoc-container :- one question label and input container <br>
-                                    adhoc-label :- label associated with one question<br>
-                                    adhoc-input :- linput related to one question<br>
-                                    max is 4 columns 1) Can share row 2) never share row on xs etc<br>
+                                3 x Irregular sized textarea
+                            </div>
+
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                    <div class="adhoc-input flex-row ">04To be </div>
                                 </div>
 
-                                <div class="QUESTIONS border border-1 border-dark ">
-
-                                    <div class="container-qs-h">
-
-                                        <span>
-                                            ccccccc
-                                        </span>
-
-                                    </div>
-
-                                    <div class="container-qs-d">
-                                    </div>
-
+                                <div class="adhoc-input d-flex flex-row justify-content-end">
+                                    <textarea rows="2" cols="50"></textarea>
+                                </div>
+                            </div>
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                    <div class="adhoc-input flex-row ">05To be, or not to be: that is the
+                                        question:
+                                        Whether 'tis nobler in the mind to suffer / The slings </div>
                                 </div>
 
-                                  
-                                <div class="container-qs-d row m-0"> <!-- m-0 needed as row causes x scroll to appear -->
-
-                                    <div>
-                                        3 x Irregular sized labels
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
-                                        <div class="adhoc-input flex-row  mt-auto">
-                                            01To be, or not to be: that is the question: Whether 'tis
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-start">
-                                            <input type="number" id="quantity" name="quantity" min="1" max="5">
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
-                                        <div class="adhoc-input flex-row  mt-auto">
-                                            02To be, or not to be: that is the question: Whether 'tis nobler
-                                            in the mind to suffer / The
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-center">
-                                            <input type="text" name="telephone" maxlength="20" size="24">
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                            <div class="adhoc-input flex-row ">03To be </div>
-                                        </div>
-
-                                        <div class="adhoc-input d-flex flex-row justify-content-end">
-                                            <textarea  rows="2" cols="50"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        3 x Irregular sized textarea
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                            <div class="adhoc-input flex-row ">04To be </div>
-                                        </div>
-
-                                        <div class="adhoc-input d-flex flex-row justify-content-end">
-                                            <textarea  rows="2" cols="50"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                            <div class="adhoc-input flex-row ">05To be, or not to be: that is the
-                                                question:
-                                                Whether 'tis nobler in the mind to suffer / The slings </div>
-                                        </div>
-
-                                        <div class="adhoc-input d-flex flex-row justify-content-end">
-                                            <textarea  rows="3" cols="50"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}  ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                            <div class="adhoc-input flex-row ">06To be </div>
-                                        </div>
-
-                                        <div class="adhoc-input d-flex flex-row justify-content-end">
-                                            <textarea  rows="4" cols="50"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm1 }} ">
-                                        <div class="adhoc-label flex-row mt-auto">
-                                            07To be, or not to be: that
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-center">
-                                            <input type="text" name="telephone" maxlength="20" size="24">
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
-                                        <div class="adhoc-label flex-row mt-auto">
-                                            08To be, or not to be: that
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-center">
-                                            <input type="text" name="telephone" maxlength="20" size="24">
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                            <div class="d-flex flex-row ">09To be </div>
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-end">
-                                            <input type="text" name="telephone" maxlength="20" size="24">
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
-                                            <div class="d-flex flex-row ">10To be </div>
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-start">
-                                            <input type="text" name="telephone" maxlength="12" size="16">
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-center">
-                                            <div class="d-flex flex-row ">11To be </div>
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-center">
-                                            <input type="text" name="telephone" maxlength="12" size="16">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                            <div class="d-flex flex-row ">12To be </div>
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-center">
-                                            <input type="text" name="telephone" maxlength="12" size="16">
-                                        </div>
-                                    </div>
-
-                                    <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
-                                        <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                            <div class="d-flex flex-row ">13To be </div>
-                                        </div>
-                                        <div class="adhoc-input d-flex flex-row justify-content-end">
-                                            <input type="text" name="telephone" maxlength="12" size="16">
-                                        </div>
-                                    </div>
-
-
-                                </div> <!-- -->
-
-
-                                <div class="zzcontainer bg-success">
-                                    <div class="row m-0 row-cols-2">
-
-                                        <div class="{{ colFitClasses.xs1sm2 }} " style="min-width: 400px;">
-                                            <div class="bg-info ps-0">xs1sm2 Two min-with 400px</div>
-                                        </div>
-                                        <div class="{{ colFitClasses.xs1sm2 }}" style="min-width: 410px;">
-                                            <div class="bg-info">xs1sm2 Two min-with 410px</div>
-                                        </div>
-
-
-                                    </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-end">
+                                    <textarea rows="3" cols="50"></textarea>
                                 </div>
-                                <div>
+                            </div>
 
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}  ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                    <div class="adhoc-input flex-row ">06To be </div>
                                 </div>
 
-                                <div>
+                                <div class="adhoc-input d-flex flex-row justify-content-end">
+                                    <textarea rows="4" cols="50"></textarea>
+                                </div>
+                            </div>
 
-                                    @if(true || false) {
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm1 }} ">
+                                <div class="adhoc-label flex-row mt-auto">
+                                    07To be, or not to be: that
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-center">
+                                    <input type="text" name="telephone" maxlength="20" size="24">
+                                </div>
+                            </div>
 
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
+                                <div class="adhoc-label flex-row mt-auto">
+                                    08To be, or not to be: that
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-center">
+                                    <input type="text" name="telephone" maxlength="20" size="24">
+                                </div>
+                            </div>
 
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
+                            <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                    <div class="d-flex flex-row ">09To be </div>
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-end">
+                                    <input type="text" name="telephone" maxlength="20" size="24">
+                                </div>
+                            </div>
 
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                                        irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.
-                                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                        deserunt
-                                        mollit anim id est laborum.
-                                    </p>
+                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
+                                    <div class="d-flex flex-row ">10To be </div>
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-start">
+                                    <input type="text" name="telephone" maxlength="12" size="16">
+                                </div>
+                            </div>
 
-
-                                    }
-
+                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-center">
+                                    <div class="d-flex flex-row ">11To be </div>
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-center">
+                                    <input type="text" name="telephone" maxlength="12" size="16">
                                 </div>
                             </div>
 
 
+                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                    <div class="d-flex flex-row ">12To be </div>
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-center">
+                                    <input type="text" name="telephone" maxlength="12" size="16">
+                                </div>
+                            </div>
+
+                            <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
+                                    <div class="d-flex flex-row ">13To be </div>
+                                </div>
+                                <div class="adhoc-input d-flex flex-row justify-content-end">
+                                    <input type="text" name="telephone" maxlength="12" size="16">
+                                </div>
+                            </div>
+
+
+                        </div> <!-- -->
+
+
+                        <div class="zzcontainer bg-success">
+                            <div class="row m-0 row-cols-2">
+
+                                <div class="{{ colFitClasses.xs1sm2 }} " style="min-width: 400px;">
+                                    <div class="bg-info ps-0">xs1sm2 Two min-with 400px</div>
+                                </div>
+                                <div class="{{ colFitClasses.xs1sm2 }}" style="min-width: 410px;">
+                                    <div class="bg-info">xs1sm2 Two min-with 410px</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div>
+
                         </div>
 
-                    </mat-sidenav-content>
+                        <div>
 
-                </mat-sidenav-container>
-            </div>
-        </div>
+                            @if(true || false) {
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+                            </p>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                nostrud
+                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                irure
+                                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                deserunt
+                                mollit anim id est laborum.
+
+                            </p>
+                            The end
+
+                            }
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+  </div>
+
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+
     </div>
+
+</div>

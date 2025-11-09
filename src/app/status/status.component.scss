@@ -4,26 +4,11 @@
 
 /* the container for the sidebars and the centre content */
 
-.mat-sidenav-container-main {
-    position: absolute;
-    top: var(--msc-top, 80px); // allow for navbar(s)
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
+ 
  
 // unicode arrows
  
-.msn-start {
-    // left side
-    padding-right: 0;
-}
-
-.msn-end {
-    // left side
-    padding-right: 0;
-}
+ 
 
 .msn-button-bar {
     display: flex;
