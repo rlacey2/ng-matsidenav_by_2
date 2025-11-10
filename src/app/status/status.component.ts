@@ -16,7 +16,7 @@ import { LatinComponent } from "../_utility/latin.component";
 @Component({
   selector: 'status', // NB these classes to maintain response scrolling
     host: {
-      class:'d-flex.flex-column.overflow-hidden.h-100'
+      class:'d-flex flex-column overflow-hidden h-100'
   },
   templateUrl: 'status.component.html',
   styleUrls: [ 'status.component.scss'],
