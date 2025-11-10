@@ -233,6 +233,14 @@
 
                     <div class="scroll-y vh-100 pb-0 pe-1"> <!-- vh-100 very important in mat-sidenav-content -->
 
+                        @if(testFormFG) {
+                        <div>
+                            <datetimepicker [type]="''" [parentFG]="testFormFG" [fieldName]="'date1'"
+                                [label]="'Publish From UTC'" classes="me-2">
+                            </datetimepicker>
+                        </div>
+                        }
+
                         <div class="a_generic_dialog mt-0">
                             <div>Generic Dialog</div>
                             <button mat-button (click)="openDialog()" class="bg-light">Open Dialog</button>
@@ -283,7 +291,7 @@
                                         in the mind to suffer / The
                                     </div>
                                     <div class="adhoc-input d-flex flex-row justify-content-center">
-                                        <input type="text" name="telephone" maxlength="20" size="24">
+                                        <input type="text" name="telephone" maxlength="16" size="20">
                                     </div>
                                 </div>
 
@@ -454,7 +462,7 @@
         </mat-sidenav-container>
 
     </div>
- 
+
     <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded ms-1 me-1 flex-shrink-0">
         <a class="navbar-brand ms-2" href="#">Status</a>
         <ul class="navbar-nav">
@@ -466,6 +474,5 @@
             </ul>
             -->
     </nav>
-
 
 </div>

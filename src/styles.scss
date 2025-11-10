@@ -4,6 +4,8 @@
 @use '../node_modules/bootstrap/scss/bootstrap-grid.scss';
 @use '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+@import '@danielmoncada/angular-datetime-picker/assets/style/picker.min.css';
+
 
 /* You can add global styles to this file, and also import other style files */
 :root {

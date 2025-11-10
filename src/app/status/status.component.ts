@@ -8,25 +8,37 @@ import { RouterLink } from '@angular/router';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
-import {CdkScrollable} from '@angular/cdk/scrolling';
-import { LatinComponent } from "../_utility/latin.component";
-
  
+import { LatinComponent } from "../_utility/latin.component";
+import { DateTimePickerComponent } from "../_utility/datetimepicker/datetimepicker.component";
+import { FormBuilder, FormGroup } from '@angular/forms';
+ import {MatFormFieldModule} from '@angular/material/form-field';
+
+import {MatInputModule} from '@angular/material/input';
+
+
 /** @title Implicit main content with two sidenavs */
 @Component({
   selector: 'status', // NB these classes to maintain response scrolling
-    host: {
-      class:'d-flex flex-column overflow-hidden h-100'
+  host: {
+    class: 'd-flex flex-column overflow-hidden h-100'
   },
   templateUrl: 'status.component.html',
-  styleUrls: [ 'status.component.scss'],
-  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent]
+  styleUrls: ['status.component.scss'],
+  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent, 
+    DateTimePickerComponent,
+   MatFormFieldModule, MatInputModule
+  
+  ]
 })
 export class StatusComponent {
 
+ private fb = inject(FormBuilder)
+
   public dialog = inject(MatDialog)
- // outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
+  // outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
   private breakpointObserver = inject(BreakpointObserver)
+//  outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>; not allowed if selected into a dialog
   bps = inject(BreakpointService)
 
   @ViewChild('matsidenav1') sidenav1!: MatSidenav;
@@ -40,7 +52,7 @@ export class StatusComponent {
 
   subs: Subscription[] = [];
 
-    public myBreakpoints: any = {
+  public myBreakpoints: any = {
     xs: "(max-width: 565px)",
     sm: "(min-width: 566px) and (max-width: 767px)",
     md: "(min-width: 768px) and (max-width: 991px)",
@@ -48,33 +60,49 @@ export class StatusComponent {
     xl: "(min-width: 1200px)"
   };
 
- 
+
   currentBreakpoint: string = ''; // min max string
   currentBreakpointKey: string = ''
 
 
 
-    colFitClasses = {
+  colFitClasses = {
     // xs cols folloed by > sm 
-    
+
     xs1sm1: "col-12 ",
     xs2sm4: "col-6 col-sm-3 ",
     xs1sm2: "col-12 col-sm-6 ",
     xs1sm3: "col-12 col-sm-4 ",
 
   }
- 
+
   //readonly breakpoint$;
 
-  constructor() {
-  //  console.log('outletData ', this.outletData()) not working when called by selector into dialog
+  outletDataStatic: any
 
-  //  this.bpNative = this.bps.breakpointNative()
-    
+   testFormFG: FormGroup = new FormGroup({});
+  
+
+  constructor() {
+   // this.outletDataStatic = this.outletData()
+  //  console.log('outletData ', this.outletData()) // not working when called by selector into dialog
+
+    //  this.bpNative = this.bps.breakpointNative()
+
   }
 
   ngOnInit(): void {
     //  this.breakpoint$.subscribe(() => this.breakpointChanged());
+
+    this.testFormFG = this.fb.group({
+    date1: [new Date()],
+    
+      datengx: [new Date()],
+      datemtx: [new Date('2017-11-09T12:10:00.000Z')]
+    })
+
+
+
   }
 
   ngAfterViewInit() {
@@ -159,16 +187,11 @@ export class StatusComponent {
         this.toggle_msn_mode_bothsides('side', true);
     }
   }
-  /*
-    toggleMatSideNav() {
-      this.sidenav1.toggle();
-      this.sidenav2.toggle();
-    }
-    
-   */
-
+ 
   toggle_msn_mode_bothsides(mode: any, state: boolean) {
-    this.sidenav_mode  = mode;
+    this.sidenav_mode = mode;
+
+   // dialog eror here
     this.sidenav1.mode = mode;
     this.sidenav2.mode = mode;
 
@@ -188,10 +211,10 @@ export class StatusComponent {
     else {
       x.open()
     }
- 
+
   }
 
- 
+
   openDialog() {
 
     /*
@@ -204,7 +227,7 @@ export class StatusComponent {
       maxHeight: "100%",
       disableClose: true, // only the cancel button closes the dialog when true
       //   panelClass: 'bg-danger'
-      data : { height: "calc(100% - 15px)", title : 'SOME TITLE' }
+      data: { height: "calc(100% - 15px)", title: 'SOME TITLE' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -218,5 +241,11 @@ export class StatusComponent {
     this.destroy$.complete();
     this.subs.forEach(sub => sub.unsubscribe());
   }
+
+
+
+
+
+
 
 }

@@ -1,0 +1,60 @@
+<!-- 
+ 
+This is normalised, each time a date and/or time is required, use this component
+hence a future change gets made here
+
+<datetimepicker> </datetimepicker></datetimepicker>    <datetimepicker></datetimepicker></datetimepicker>
+ 
+ https://stackblitz.com/edit/demo-ngx-mat-datetime-picker?file=src%2Fapp%2Fapp.component.ts
+ 
+-->
+
+<form [formGroup]="parentFG">
+  <!-- 
+  @if(false) { < !-- replace with below -- >
+  <mat-form-field class="{{classes()}}"  subscriptSizing="dynamic">
+    <mat-label>{{label()}}</mat-label>
+    <input matInput [ngxMatDatetimePicker]="pickerX" placeholder="{{label()}}" [formControlName]="fieldName()" 
+      [min]="minDate" [max]="maxDate"  >
+    <mat-datepicker-toggle matSuffix [for]="pickerX"></mat-datepicker-toggle>
+    <ngx-mat-datetime-picker #pickerX [showSpinners]="showSpinners" [showSeconds]="showSeconds" [stepHour]="stepHour"
+      [stepMinute]="stepMinute" [stepSecond]="stepSecond" [touchUi]="touchUi" [color]="color"
+      [enableMeridian]="enableMeridian">
+
+      <ngx-mat-datepicker-actions>
+        <button type="button"  aria-label="Cancel" mat-button ngxMatDatepickerCancel>Cancel</button>
+        <button type="button"   aria-label="Okay" mat-raised-button color="primary" ngxMatDatepickerApply>OK</button>
+      </ngx-mat-datepicker-actions>
+    </ngx-mat-datetime-picker>
+
+  </mat-form-field>
+}
+-->
+
+  @if(true) {
+
+  <!--
+  20250731 ng20
+  https://www.npmjs.com/package/@danielmoncada/angular-datetime-picker
+  https://daniel-projects.firebaseapp.com/owlng/date-time-picker  
+  https://danielykpan.github.io/date-time-picker/#locale-formats
+
+    examples 
+    https://stackblitz.com/edit/owl-datetimepicker?file=src%2Fapp%2Fapp.module.ts  
+  -->
+
+  <mat-form-field class="{{classes()}} abs-w-155" subscriptSizing="dynamic">
+    <mat-label>{{label()}}</mat-label>
+    <input matInput [owlDateTime]="pickerX2" [owlDateTimeTrigger]="pickerX2" placeholder="{{label()}}"
+      [formControlName]="fieldName()" [min]="minDate"  >
+
+    <owl-date-time #pickerX2 [pickerType]="'both'" [pickerMode]="'dialog'"></owl-date-time>
+
+  </mat-form-field>
+  <span class="example-trigger" [owlDateTimeTrigger]="pickerX2">
+    <mat-icon class="small me-2">today</mat-icon>
+  </span>
+
+  }
+
+</form>
