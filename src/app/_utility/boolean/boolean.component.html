@@ -1,0 +1,82 @@
+<!--
+<boolean> </boolean> <boolean></boolean></boolean></boolean>
+   ***************************
+   Generic Boolean Component
+   ***************************
+
+   -->
+ <form [formGroup]="parentFG">
+
+  @switch (type()) {  
+    <!-- default values -->
+
+    @case ('TF') {
+ 
+      <mat-form-field   class="{{classes()}}"  [subscriptSizing]="'dynamic'"  >
+        <mat-label>{{label()}}</mat-label>
+        <mat-select [formControlName]="fieldName()" (selectionChange)='booleanChanged()'>
+          @for (o of booleanOptions; track $index) {
+          <mat-option [value]="o['value']">
+            {{o.label}}
+          </mat-option>
+          }
+        </mat-select>
+        
+      </mat-form-field>
+
+    }
+
+    @case ('YN') {
+
+      <mat-form-field   class="{{classes()}}" [subscriptSizing]="subscriptSizing()" >
+        <mat-label>{{label()}}</mat-label>
+        <mat-select [formControlName]="fieldName()" (selectionChange)='booleanChanged()'>
+          @for (o of booleanOptionsYN; track $index) {
+          <mat-option [value]="o['value']">
+            {{o.label}}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+    }
+
+    @case ('01') {
+
+      <mat-form-field   class="{{classes()}}" [subscriptSizing]="subscriptSizing()"  >
+        <mat-label>{{label()}}</mat-label>
+        <mat-select [formControlName]="fieldName()" (selectionChange)='booleanChanged()'>
+          @for (o of booleanOptionsBinary; track $index) {
+          <mat-option [value]="o['value']">
+            {{o.label}}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+    }
+
+    @default() {
+      <h6>Boolean Error</h6>
+ 
+    }
+
+
+  }
+
+</form>
+
+ 
+  <!-- 
+  <mat-form-field class="abs-w-150 pe-2" subscriptSizing="dynamic">
+    <mat-label>Enabled</mat-label>
+    <mat-select formControlName="enabled">
+      @for (o of booleanOptions; track $index) {
+      <mat-option [value]="o['value']">
+        {{o.label}}
+      </mat-option>
+      }
+    </mat-select>
+
+  </mat-form-field>
+  -->

@@ -22,8 +22,8 @@
     --hg-nb-view-local-height: var(--nav-menu-height);
     --hg-nb-view-local-hover-color: grey;
 
-//}
-//:root {
+    //}
+    //:root {
     // promote to root later
 
     --msc-top: 70px; // var(--msc-top, 80px)
@@ -38,7 +38,7 @@
 
     --msn-btn-bg-color: white; // var(--msn-btn-bg-color, white)
     --msn-btn-transition: ease-in-out 0.8s; // var(--msn-btn-transition,    ease-in-out 0.8s)
-
+    --default-transition: ease-in-out 0.8s; // var(--default-transition,    ease-in-out 0.8s)
     ;
 
 
@@ -59,6 +59,9 @@
 html,
 body {
 
+    animation: none !important;   // https://angular.dev/guide/animations/migration#animating-a-transition
+    transition: none !important;
+
     margin: 0;
     height: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -77,6 +80,11 @@ html.dark {
 
 html {
     overflow: hidden;
+}
+
+.no-animation {
+    animation: none !important;
+    transition: none !important;
 }
 
 main {
@@ -161,7 +169,7 @@ scrollbar newer browsers
         color: var(--mat-sys-primary);
         background-color: var(--mat-sys-surface);
         border-radius: 4px;
-        transition: var(--menu-item-hover-transition);
+        transition: var(--menu-item-hover-transition, 0.8s);
         // padding: 4px;
     }
 
@@ -223,13 +231,13 @@ originally status nav content
 
 */
 
- /* the container for the sidebars and the centre content */
+/* the container for the sidebars and the centre content */
 
- 
- 
+
+
 // unicode arrows
- 
- 
+
+
 
 .msn-button-bar {
     display: flex;
@@ -253,8 +261,9 @@ originally status nav content
     background-color: var(--msn-btn-bg-hover, aquamarine);
 }
 
-.msnbtn1 { // left side
-    position: fixed;    // ensure the button stays in place when scrolling
+.msnbtn1 {
+    // left side
+    position: fixed; // ensure the button stays in place when scrolling
     left: 0;
     margin-left: 2px;
     padding-left: 3px;
@@ -264,8 +273,9 @@ originally status nav content
     border-left: 0;
 }
 
-.msnbtn2 { // right side
-    position: fixed;    // ensure the button stays in place when scrolling
+.msnbtn2 {
+    // right side
+    position: fixed; // ensure the button stays in place when scrolling
     right: 0;
     margin-right: 2px;
     padding-left: 5px;
@@ -291,28 +301,28 @@ originally status nav content
     padding-right: var(--msc-padding, 8px);
     padding-bottom: var(--msc-padding, 8px);
     background-color: var(--msc-bg-color, red);
- }
+}
 
- .msn-btn-close-left {
-   float: right;
-   top: 0;
-     border-top-left-radius: var(--msn-btn-rounding, 10px);
+.msn-btn-close-left {
+    float: right;
+    top: 0;
+    border-top-left-radius: var(--msn-btn-rounding, 10px);
     border-bottom-left-radius: var(--msn-btn-rounding, 10px);
- }
+}
 
- .msn-btn-close-right {
+.msn-btn-close-right {
     float: left;
-        border-top-right-radius: var(--msn-btn-rounding, 10px);
+    border-top-right-radius: var(--msn-btn-rounding, 10px);
     border-bottom-right-radius: var(--msn-btn-rounding, 10px);
- }
+}
 
- .msnside-links {
+.msnside-links {
     margin-top: 10px;
- }
+}
 
 /////
- 
- 
+
+
 /*
     Adhoc Questions
  */
@@ -323,7 +333,14 @@ originally status nav content
     border-width: 1px;
     display: flex;
     flex-direction: column;
+        transition: var(--default-transition, 0.8s);
 }
+
+.ahdoc-container:hover {
+  background-color: aquamarine;
+}
+
+
 
 .ahdoc-input {
     display: flex !important;
@@ -341,12 +358,12 @@ for dialogs
 */
 
 .dialogHeader {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 700 !important;
-  padding-top: 4px;
-  padding-right: 6px;
-  padding-left: 6px;
-  padding-bottom: 2px;
- // background-color: red;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700 !important;
+    padding-top: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-bottom: 2px;
+    // background-color: red;
 }

@@ -405,7 +405,45 @@
                                 </div>
 
 
+                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
+                                        <div class="d-flex flex-row ">14To be A DATE</div>
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-start">
+                                        @if(testFormFG) {
+                                        <div>
+                                            <datetimepicker [type]="''" [parentFG]="testFormFG" [fieldName]="'date1'"
+                                                [label]="'Publish From UTC'" classes="me-2">
+                                            </datetimepicker>
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+
+ 
+
+                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                    <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
+                                        <div class="d-flex flex-row ">15To be Boolean</div>
+                                    </div>
+                                    <div class="adhoc-input d-flex flex-row justify-content-start">
+                                        @if(testFormFG) {
+                                        <div>
+                                            <boolean [type]="'TF'" [parentFG]="testFormFG" label="Status Override"
+                                                [fieldName]="'live'" classes=" ">
+                                            </boolean>
+                                        </div>
+                                        }
+                                    </div>
+                                </div>
+
                             </div> <!-- -->
+
+
+
+
+
+
 
 
                             <div class="zzcontainer bg-success">

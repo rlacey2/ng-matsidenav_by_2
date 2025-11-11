@@ -3,16 +3,17 @@
 This is normalised, each time a date and/or time is required, use this component
 hence a future change gets made here
  */
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { Subscription, debounceTime, distinctUntilChanged, filter } from 'rxjs';
 import { Component, OnInit, Input, input, output, OnDestroy } from '@angular/core';
-import { FormControl, ValueChangeEvent  } from '@angular/forms';
 
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, ThemePalette } from '@angular/material/core';
 import { DateAdapter } from '@angular/material/core';
 import * as _moment from 'moment';
 
+import { FormControl, ValueChangeEvent  } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
@@ -33,7 +34,7 @@ export const MY_FORMATS = {
   },
 };
  
-@Component({
+@Component({ // https://www.npmjs.com/package/@danielmoncada/angular-datetime-picker
  
   selector: 'datetimepicker', //  >datetimepicker< <datetimepicker> </datetimepicker></datetimepicker>    <datetimepicker></datetimepicker></datetimepicker>
   templateUrl: './datetimepicker.component.html',
@@ -42,7 +43,7 @@ export const MY_FORMATS = {
 
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
 
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+ //   { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
   ],
     imports: [MatFormFieldModule, MatInputModule, MatIconModule, ReactiveFormsModule,
        OwlDateTimeModule  , OwlNativeDateTimeModule
@@ -53,9 +54,9 @@ export class DateTimePickerComponent implements OnInit, OnDestroy { // DEPRECATE
 
   @Input() parentFG:any // 
 
-  type = input<String>()      // signal
-  classes = input<String>()   // signal
-  label = input<String>()     // signal
+  type = input<string>()      // signal
+  classes = input<string>()   // signal
+  label = input<string>()     // signal
   fieldName = input< any>() // signal
 
   dateTimeChange = output<string>()      // optional to call method on the parent
@@ -85,12 +86,12 @@ export class DateTimePickerComponent implements OnInit, OnDestroy { // DEPRECATE
  
     this.subs.push(
 
-      this.parentFG.get(this.fieldName()).events.pipe(
+      this.parentFG.get( this.fieldName()).events.pipe(
         filter(event => event instanceof ValueChangeEvent),
         debounceTime(500),
         distinctUntilChanged())
         .subscribe((event: ValueChangeEvent<Event>) => {
-          // console.log(event.value)
+          console.log('DateTimePickerComponent ' , event.value)
           this.dateTimeChange.emit(this.parentFG.get(this.fieldName()).value); // inform any listening parent, may not be used if part of bigger catch at form level etc
         })
     )

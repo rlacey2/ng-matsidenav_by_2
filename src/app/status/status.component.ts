@@ -10,11 +10,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
  
 import { LatinComponent } from "../_utility/latin.component";
-import { DateTimePickerComponent } from "../_utility/datetimepicker/datetimepicker.component";
+
 import { FormBuilder, FormGroup } from '@angular/forms';
  import {MatFormFieldModule} from '@angular/material/form-field';
 
 import {MatInputModule} from '@angular/material/input';
+
+
+import { DateTimePickerComponent } from "../_utility/datetimepicker/datetimepicker.component";
+import { BooleanComponent } from "../_utility/boolean/boolean.component";
 
 
 /** @title Implicit main content with two sidenavs */
@@ -26,7 +30,7 @@ import {MatInputModule} from '@angular/material/input';
   templateUrl: 'status.component.html',
   styleUrls: ['status.component.scss'],
   imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent, 
-    DateTimePickerComponent,
+    DateTimePickerComponent, BooleanComponent,
    MatFormFieldModule, MatInputModule
   
   ]
@@ -96,6 +100,7 @@ export class StatusComponent {
 
     this.testFormFG = this.fb.group({
     date1: [new Date()],
+    live: [null], // boolean
     
       datengx: [new Date()],
       datemtx: [new Date('2017-11-09T12:10:00.000Z')]
