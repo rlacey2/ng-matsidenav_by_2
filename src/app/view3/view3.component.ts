@@ -172,6 +172,7 @@ export class View3Component {
    */
 
   toggle_msn_mode_bothsides(mode: any, state: boolean) {
+    return
     this.sidenav_mode  = mode;
     this.sidenav1.mode = mode;
     this.sidenav2.mode = mode;

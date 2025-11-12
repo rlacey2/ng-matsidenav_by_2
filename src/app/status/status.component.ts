@@ -8,13 +8,13 @@ import { RouterLink } from '@angular/router';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
- 
+
 import { LatinComponent } from "../_utility/latin.component";
 
 import { FormBuilder, FormGroup } from '@angular/forms';
- import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 
 
 import { DateTimePickerComponent } from "../_utility/datetimepicker/datetimepicker.component";
@@ -29,20 +29,20 @@ import { BooleanComponent } from "../_utility/boolean/boolean.component";
   },
   templateUrl: 'status.component.html',
   styleUrls: ['status.component.scss'],
-  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent, 
+  imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent,
     DateTimePickerComponent, BooleanComponent,
-   MatFormFieldModule, MatInputModule
-  
+    MatFormFieldModule, MatInputModule
+
   ]
 })
 export class StatusComponent {
 
- private fb = inject(FormBuilder)
+  private fb = inject(FormBuilder)
 
   public dialog = inject(MatDialog)
   // outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
   private breakpointObserver = inject(BreakpointObserver)
-//  outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>; not allowed if selected into a dialog
+  //  outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>; not allowed if selected into a dialog
   bps = inject(BreakpointService)
 
   @ViewChild('matsidenav1') sidenav1!: MatSidenav;
@@ -71,12 +71,37 @@ export class StatusComponent {
 
 
   colFitClasses = {
-    // xs cols folloed by > sm 
+    // xs cols followed by > sm > nd
+    /*
+    suggested defaults
+    xs1sm2md3
+    dates and times-in-angular
+    string16
+    post code 
+    
+    + cols and size attributes where appropriate
+    
+     provide as a service, each question type has a default attr to one of these and is resetable by button on cmsadhoc
+    
+    ahdoc-container  on its own horizontal
+    right		ms-auto forces right for any cell 
+    left 	    me-auto
+    centre      ms-auto me-auto
+    
+    n cells on same horizontal centred with ms-auto on first and me-auto on last
+    
+    */
+
+    // hr_* only relevant when working independently due to a wrap
+    hr_start: "me-auto",
+    hr_end: "ms-auto",
+    hr_center: "ms-auto me-auto",
 
     xs1sm1: "col-12 ",
     xs2sm4: "col-6 col-sm-3 ",
     xs1sm2: "col-12 col-sm-6 ",
-    xs1sm3: "col-12 col-sm-4 ",
+    xs1sm2md3: "col-12 col-sm-6 col-md-4",
+    xs1sm3: "col-12 col-sm-4",
 
   }
 
@@ -84,12 +109,12 @@ export class StatusComponent {
 
   outletDataStatic: any
 
-   testFormFG: FormGroup = new FormGroup({});
-  
+  testFormFG: FormGroup = new FormGroup({});
+
 
   constructor() {
-   // this.outletDataStatic = this.outletData()
-  //  console.log('outletData ', this.outletData()) // not working when called by selector into dialog
+    // this.outletDataStatic = this.outletData()
+    //  console.log('outletData ', this.outletData()) // not working when called by selector into dialog
 
     //  this.bpNative = this.bps.breakpointNative()
 
@@ -99,9 +124,9 @@ export class StatusComponent {
     //  this.breakpoint$.subscribe(() => this.breakpointChanged());
 
     this.testFormFG = this.fb.group({
-    date1: [new Date()],
-    live: [null], // boolean
-    
+      date1: [new Date()],
+      live: [null], // boolean
+
       datengx: [new Date()],
       datemtx: [new Date('2017-11-09T12:10:00.000Z')]
     })
@@ -192,11 +217,11 @@ export class StatusComponent {
         this.toggle_msn_mode_bothsides('side', true);
     }
   }
- 
+
   toggle_msn_mode_bothsides(mode: any, state: boolean) {
     this.sidenav_mode = mode;
 
-   // dialog eror here
+    // dialog eror here
     this.sidenav1.mode = mode;
     this.sidenav2.mode = mode;
 

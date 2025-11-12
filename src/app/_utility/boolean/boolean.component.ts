@@ -41,7 +41,7 @@ export class BooleanComponent implements OnInit {
   type = input<string>()      // signal
   classes = input<string>()   // signal
   label = input<string>()     // signal
-  fieldName = input< any>() // signal
+  fieldName = input<any>() // signal
 
   subscriptSizing = input<any>('dynamic') // signal  99.99% will be dynamic i.e save space
 

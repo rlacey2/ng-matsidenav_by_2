@@ -29,7 +29,7 @@
     --msc-top: 70px; // var(--msc-top, 80px)
     // msn mat side nav
     --msn-bg-color: aquamarine; // var(--msn-bg-color, red)
-    --msn-bg-width: 180px; // var(--msn-bg-width, 180px)
+    --msn-bg-width: 120px; // var(--msn-bg-width, 180px)
     --msn-btn-rounding: 16px; // var(--msn-btn-rounding, 16px)
     --msn-btn-bg-hover: aquamarine; // var(--msn-btn-bg-hover, aquamarine)
     --msn-btn-hover-padding: 10px; // var(--msn-btn-hover-padding, 10px) // allows a visual flick jump
@@ -246,7 +246,7 @@ originally status nav content
 
 .msn-side-default {
     background-color: var(--msn-bg-color, white);
-    width: var(--msn-bg-width, 180px);
+    width: var(--msn-bg-width, 120px);
 }
 
 .msn-btn-default {
@@ -327,7 +327,7 @@ originally status nav content
     Adhoc Questions
  */
 
-.ahdoc-container {
+.adhoc-container {
     border-style: dashed;
     border-color: magenta;
     border-width: 1px;
@@ -336,20 +336,20 @@ originally status nav content
         transition: var(--default-transition, 0.8s);
 }
 
-.ahdoc-container:hover {
+.adhoc-container:hover {
   background-color: aquamarine;
 }
 
-
-
-.ahdoc-input {
+ 
+.adhoc-input {
     display: flex !important;
     flex-direction: row !important;
 }
 
-.ahdoc-label {
+.adhoc-label {
     display: flex !important;
     flex-direction: row !important;
+    margin-top: auto !important;
 }
 
 

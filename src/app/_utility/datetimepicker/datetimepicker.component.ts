@@ -62,14 +62,14 @@ export class DateTimePickerComponent implements OnInit, OnDestroy { // DEPRECATE
   dateTimeChange = output<string>()      // optional to call method on the parent
 
 
-  public date: moment.Moment;
+  public date!: moment.Moment;
   public disabled = false;
   public showSpinners = true;
   public showSeconds = false;
   public touchUi = false;
   public enableMeridian = false;
-  public minDate: moment.Moment;
-  public maxDate: moment.Moment;
+  public minDate!: moment.Moment;
+  public maxDate!: moment.Moment;
   public stepHour = 1;
   public stepMinute = 1;
   public stepSecond = 1;

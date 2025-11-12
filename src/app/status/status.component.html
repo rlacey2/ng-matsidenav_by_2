@@ -233,7 +233,7 @@
 
                     <div class="scroll-y vh-100 pb-0 pe-1"> <!-- vh-100 very important in mat-sidenav-content -->
 
-                        @if(testFormFG) {
+                        @if(testFormFG) { <!-- later component call for the field -->
                         <div>
                             <datetimepicker [type]="''" [parentFG]="testFormFG" [fieldName]="'date1'"
                                 [label]="'Publish From UTC'" classes="me-2">
@@ -248,7 +248,7 @@
 
                         <div>
                             <div>
-                                ahdoc-container :- one question label and input container <br>
+                                adhoc-container :- one question label and input container <br>
                                 adhoc-label :- label associated with one question<br>
                                 adhoc-input :- linput related to one question<br>
                                 max is 4 columns 1) Can share row 2) never share row on xs etc<br>
@@ -272,22 +272,68 @@
 
                             <div class="container-qs-d row m-0"> <!-- m-0 needed as row causes x scroll to appear -->
 
-                                <div>
-                                    3 x Irregular sized labels
+                               <div class="adhoc-container {{ colFitClasses.xs1sm3 }} ">
+                                    <div class="adhoc-label  {{ colFitClasses.hr_end }}">
+                                        <div class="">16To be Boolean</div>
+                                    </div>
+                                     <div class="adhoc-input {{ colFitClasses.hr_start }}">
+                                        @if(testFormFG) { <!-- later component call for the field -->
+                                       <ng-container>
+                                            <!-- later  do label correctly-->
+                                            <boolean [type]="'TF'" [parentFG]="testFormFG" label="Status Override"
+                                                [fieldName]="'live'" classes=" ">
+                                            </boolean> 
+                                        </ng-container>
+                                        }
+                                    </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                               <div class="adhoc-container {{ colFitClasses.xs1sm3 }} ">
+                                    <div class="adhoc-label  {{ colFitClasses.hr_end }}">
+                                        <div class="">17To be xs1sm2</div>
+                                    </div>
+                                     <div class="adhoc-input {{ colFitClasses.hr_end }}">
+                                        @if(testFormFG) { <!-- later component call for the field -->
+                                        <ng-container>
+                                            <boolean [type]="'TF'" [parentFG]="testFormFG" label="Status Override"
+                                                [fieldName]="'live'" classes=" ">
+                                            </boolean>
+                                        </ng-container>
+                                        }
+                                    </div>
+                                </div>
+
+                               <div class="adhoc-container {{ colFitClasses.xs1sm2md3 }} {{ colFitClasses.hr_end }}">
+                                    <div class="adhoc-label  {{ colFitClasses.hr_end }}">
+                                        <div class="">18To be xs1sm2md3 18To be xs1sm2md318To be xs1sm2md318To be xs1sm2md318To be xs1sm2md318To be xs1sm2md318To be xs1sm2md318To be xs1sm2md318To be xs1sm2md3</div>
+                                    </div>
+                                    <div class="adhoc-input {{ colFitClasses.hr_center }}">
+                                        @if(testFormFG) { <!-- later component call for the field -->
+                                        <ng-container>
+                                            <boolean [type]="'TF'" [parentFG]="testFormFG" label="Status Override"
+                                                [fieldName]="'live'" classes=" ">
+                                            </boolean>
+                                        </ng-container>
+                                        }
+                                    </div>
+                                </div>
+ 
+                                <div>
+                                    3 x Irregular sized labels  USE ABOVE PATTTEN HTML
+                                </div>
+
+                                <div class="adhoc-container {{ colFitClasses.xs1sm3 }} ">
                                     <div class="adhoc-input flex-row  mt-auto">
-                                        01To be, or not to be: that is the question: Whether 'tis
+                                        01To be xs1sm3 or not to be: that is the question: Whether 'tis
                                     </div>
                                     <div class="adhoc-input d-flex flex-row justify-content-start">
                                         <input type="number" id="quantity" name="quantity" min="1" max="5">
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm3 }} ">
                                     <div class="adhoc-input flex-row  mt-auto">
-                                        02To be, or not to be: that is the question: Whether 'tis nobler
+                                        02To be xs1sm3 or not to be: that is the question: Whether 'tis nobler
                                         in the mind to suffer / The
                                     </div>
                                     <div class="adhoc-input d-flex flex-row justify-content-center">
@@ -295,9 +341,9 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm3 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                        <div class="adhoc-input flex-row ">03To be </div>
+                                        <div class="adhoc-input flex-row ">03To be xs1sm3</div>
                                     </div>
 
                                     <div class="adhoc-input d-flex flex-row justify-content-end">
@@ -309,18 +355,18 @@
                                     3 x Irregular sized textarea
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm3 }}   ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                        <div class="adhoc-input flex-row ">04To be </div>
+                                        <div class="adhoc-input flex-row ">04To be xs1sm3</div>
                                     </div>
 
                                     <div class="adhoc-input d-flex flex-row justify-content-end">
                                         <textarea rows="2" cols="50"></textarea>
                                     </div>
                                 </div>
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}   ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm3 }}   ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                        <div class="adhoc-input flex-row ">05To be, or not to be: that is the
+                                        <div class="adhoc-input flex-row ">05To be xs1sm3 or not to be: that is the
                                             question:
                                             Whether 'tis nobler in the mind to suffer / The slings </div>
                                     </div>
@@ -330,9 +376,9 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm3 }}  ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm3 }}  ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
-                                        <div class="adhoc-input flex-row ">06To be </div>
+                                        <div class="adhoc-input flex-row ">06To be xs1sm3</div>
                                     </div>
 
                                     <div class="adhoc-input d-flex flex-row justify-content-end">
@@ -340,7 +386,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm1 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm1 }} ">
                                     <div class="adhoc-label flex-row mt-auto">
                                         07To be, or not to be: that
                                     </div>
@@ -349,7 +395,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm2 }} ">
                                     <div class="adhoc-label flex-row mt-auto">
                                         08To be, or not to be: that
                                     </div>
@@ -358,7 +404,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs1sm2 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs1sm2 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
                                         <div class="d-flex flex-row ">09To be </div>
                                     </div>
@@ -367,7 +413,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs2sm4 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
                                         <div class="d-flex flex-row ">10To be </div>
                                     </div>
@@ -376,7 +422,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs2sm4 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-center">
                                         <div class="d-flex flex-row ">11To be </div>
                                     </div>
@@ -386,7 +432,7 @@
                                 </div>
 
 
-                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs2sm4 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
                                         <div class="d-flex flex-row ">12To be </div>
                                     </div>
@@ -395,7 +441,7 @@
                                     </div>
                                 </div>
 
-                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs2sm4 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-end">
                                         <div class="d-flex flex-row ">13To be </div>
                                     </div>
@@ -405,12 +451,12 @@
                                 </div>
 
 
-                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs2sm4 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
                                         <div class="d-flex flex-row ">14To be A DATE</div>
                                     </div>
                                     <div class="adhoc-input d-flex flex-row justify-content-start">
-                                        @if(testFormFG) {
+                                        @if(testFormFG) { <!-- later component call for the field -->
                                         <div>
                                             <datetimepicker [type]="''" [parentFG]="testFormFG" [fieldName]="'date1'"
                                                 [label]="'Publish From UTC'" classes="me-2">
@@ -422,12 +468,12 @@
 
  
 
-                                <div class="ahdoc-container {{ colFitClasses.xs2sm4 }} ">
+                                <div class="adhoc-container {{ colFitClasses.xs2sm4 }} ">
                                     <div class="adhoc-label mt-auto d-flex flex-row justify-content-start">
                                         <div class="d-flex flex-row ">15To be Boolean</div>
                                     </div>
                                     <div class="adhoc-input d-flex flex-row justify-content-start">
-                                        @if(testFormFG) {
+                                        @if(testFormFG) { <!-- later component call for the field -->
                                         <div>
                                             <boolean [type]="'TF'" [parentFG]="testFormFG" label="Status Override"
                                                 [fieldName]="'live'" classes=" ">
