@@ -1,8 +1,10 @@
+// styles.scss
+
 @use '@angular/material' as mat;
 @use 'style-theme-colors' as colors;
 
-@use '../node_modules/bootstrap/scss/bootstrap-grid.scss';
-@use '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@use '../../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@use '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 @import '@danielmoncada/angular-datetime-picker/assets/style/picker.min.css';
 
@@ -29,7 +31,7 @@
     --msc-top: 70px; // var(--msc-top, 80px)
     // msn mat side nav
     --msn-bg-color: aquamarine; // var(--msn-bg-color, red)
-    --msn-bg-width: 120px; // var(--msn-bg-width, 180px)
+    --msn-bg-width: 120px; // var(--msn-bg-width, 120px)
     --msn-btn-rounding: 16px; // var(--msn-btn-rounding, 16px)
     --msn-btn-bg-hover: aquamarine; // var(--msn-btn-bg-hover, aquamarine)
     --msn-btn-hover-padding: 10px; // var(--msn-btn-hover-padding, 10px) // allows a visual flick jump
@@ -55,6 +57,7 @@
     inherits: false;
     initial-value: #e0564f;
 }
+
 
 html,
 body {
@@ -237,6 +240,9 @@ originally status nav content
 
 // unicode arrows
 
+.bg-magenta {
+    background-color: magenta;
+}
 
 
 .msn-button-bar {
@@ -245,8 +251,8 @@ originally status nav content
 }
 
 .msn-side-default {
-    background-color: var(--msn-bg-color, white);
-    width: var(--msn-bg-width, 120px);
+    background-color: var(--msn-bg-color, white) !important; 
+    width: var(--msn-bg-width, 120px) !important;
 }
 
 .msn-btn-default {
@@ -265,7 +271,7 @@ originally status nav content
     // left side
     position: fixed; // ensure the button stays in place when scrolling
     left: 0;
-    margin-left: 2px;
+    margin-left: 4px; // to hide imprint behind when menu displayed
     padding-left: 3px;
     padding-right: 5px;
     border-top-right-radius: var(--msn-btn-rounding, 10px);
@@ -277,7 +283,7 @@ originally status nav content
     // right side
     position: fixed; // ensure the button stays in place when scrolling
     right: 0;
-    margin-right: 2px;
+    margin-right: 4px; // to hide imprint behind when menu displayed
     padding-left: 5px;
     padding-right: 3px;
     border-top-left-radius: var(--msn-btn-rounding, 10px);
@@ -306,6 +312,7 @@ originally status nav content
 .msn-btn-close-left {
     float: right;
     top: 0;
+    margin-right: 8px;
     border-top-left-radius: var(--msn-btn-rounding, 10px);
     border-bottom-left-radius: var(--msn-btn-rounding, 10px);
 }
@@ -314,6 +321,7 @@ originally status nav content
     float: left;
     border-top-right-radius: var(--msn-btn-rounding, 10px);
     border-bottom-right-radius: var(--msn-btn-rounding, 10px);
+    margin-left: 8px;
 }
 
 .msnside-links {

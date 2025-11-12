@@ -28,13 +28,13 @@ import { BooleanComponent } from "../_utility/boolean/boolean.component";
     class: 'd-flex flex-column overflow-hidden h-100'
   },
   templateUrl: 'status.component.html',
-  styleUrls: ['status.component.scss'],
+  // styleUrls: ['status.component.scss'],
   imports: [MatSidenavContainer, MatSidenav, MatSidenavContent, RouterLink, LatinComponent,
     DateTimePickerComponent, BooleanComponent,
     MatFormFieldModule, MatInputModule
-
   ]
 })
+
 export class StatusComponent {
 
   private fb = inject(FormBuilder)
@@ -130,8 +130,6 @@ export class StatusComponent {
       datengx: [new Date()],
       datemtx: [new Date('2017-11-09T12:10:00.000Z')]
     })
-
-
 
   }
 

@@ -15,6 +15,7 @@
     <div class="hg-view-content d-flex flex-column flex-grow-1 overflow-hidden ms-1 pe-1">
         <!-- 100 view and centre scoll -->
         @if(1) {
+            
         <mat-sidenav-container class="mat-sidenav-container-main ">
 
             <mat-sidenav #matsidenav1 opened mode="side" position="start" class="msn-side-default msn-start">
@@ -209,7 +210,7 @@
 
                 <!-- vh-100 pb-3 needed for safe 100% scrolling -->
 
-                <div class="  d-flex flex-column flex-grow-1 scroll-y mh-100 rounded ms-1 me-1 ps-2 pe-2 zzpb-5">
+                <div class="  d-flex flex-column flex-grow-1 scroll-y mh-100  rounded ms-1 me-1 ps-2 pe-2 pb-0">
 
                     <div class="msn-button-bar">
                         <!-- 
@@ -231,20 +232,9 @@
 
                     </div>
 
-                    <div class="scroll-y vh-100 pb-1 pe-1"> <!-- vh-100 very important-->
+                    <div class="scroll-y vh-100 pb-0 pe-1"> <!-- vh-100 very important in mat-sidenav-content -->
 
-                        <h1>Some content</h1>
-
-                          <latin></latin>
-                    </div>
-
-                </div>
-
-            </mat-sidenav-content>
-
-        </mat-sidenav-container>
-        }
-        @if(0) {
+          @if(1) {
         <div class="scroll-y zzvh-100 pb-1 pe-1"> <!-- vh-100 very important-->
 
             <latin></latin>
@@ -252,6 +242,19 @@
         </div>
 
         }
+  
+
+                    </div>
+ 
+                </div>
+
+            </mat-sidenav-content>
+
+        </mat-sidenav-container>
+
+        }
+
+
     </div>
 
     <nav class="hg-nb-view-local navbar navbar-light bg-warning navbar-expand rounded ms-1 me-1 flex-shrink-0">

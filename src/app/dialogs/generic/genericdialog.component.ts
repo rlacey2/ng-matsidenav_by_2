@@ -29,10 +29,10 @@ import { StatusComponent} from '../../status/status.component'
         host: {
       class:'d-flex flex-column overflow-hidden h-100'
   },
-  imports: [MatDialogClose, MatButtonModule, SafePipe, StatusComponent, MatSidenavContainer, MatSidenavContent, MatSidenav, LatinComponent],
+  imports: [MatDialogClose, MatButtonModule, SafePipe, StatusComponent],
   standalone: true,
   templateUrl: './genericdialog.component.html',
-  styleUrl: './genericdialog.component.scss',
+//  styleUrl: './genericdialog.component.scss',
 })
 export class GenericDialogComponent {
 

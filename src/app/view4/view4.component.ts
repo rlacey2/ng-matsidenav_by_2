@@ -10,22 +10,26 @@ import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
 import {CdkScrollable} from '@angular/cdk/scrolling';
 import { FormControl } from '@angular/forms';
+import { LatinComponent } from "../_utility/latin.component";
 
 @Component({
-  selector: 'app-view4', // NB these classes to maintain response scrolling
-        host: {
+  selector: 'app-view3', // NB these classes to maintain response scrolling
+      host: {
       class:'d-flex flex-column overflow-hidden h-100'
   },
-  imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent],
+  imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent, LatinComponent],
   templateUrl: './view4.component.html',
-  styleUrl: './view4.component.scss',
+ // styleUrl: './view3.component.scss',
 })
 
 export class View4Component {
  
- public dialog = inject(MatDialog)
-  outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
+ 
+
+  public dialog = inject(MatDialog)
+  // outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
   private breakpointObserver = inject(BreakpointObserver)
+  //  outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>; not allowed if selected into a dialog
   bps = inject(BreakpointService)
 
   @ViewChild('matsidenav1') sidenav1!: MatSidenav;
@@ -33,13 +37,13 @@ export class View4Component {
 
   // assuming side until told otherwise
   mode_default = 'side' // prevents button flicker in and out on larger devices 
-  sidenav_mode: string = "side"; // store whether side || over
+  sidenav_mode: string = "side"; // store whether side || over || slide
   currentState: string = 'Idle';
   private destroy$ = new Subject<void>(); // use as takeUntil flag
 
   subs: Subscription[] = [];
 
-    public myBreakpoints: any = {
+  public myBreakpoints: any = {
     xs: "(max-width: 565px)",
     sm: "(min-width: 566px) and (max-width: 767px)",
     md: "(min-width: 768px) and (max-width: 991px)",
@@ -47,39 +51,63 @@ export class View4Component {
     xl: "(min-width: 1200px)"
   };
 
- 
+
   currentBreakpoint: string = ''; // min max string
   currentBreakpointKey: string = ''
 
 
 
-    colFitClasses = {
-    // xs cols folloed by > sm 
+  colFitClasses = {
+    // xs cols followed by > sm > nd
+    /*
+    suggested defaults
+    xs1sm2md3
+    dates and times-in-angular
+    string16
+    post code 
     
+    + cols and size attributes where appropriate
+    
+     provide as a service, each question type has a default attr to one of these and is resetable by button on cmsadhoc
+    
+    ahdoc-container  on its own horizontal
+    right		ms-auto forces right for any cell 
+    left 	    me-auto
+    centre      ms-auto me-auto
+    
+    n cells on same horizontal centred with ms-auto on first and me-auto on last
+    
+    */
+
+    // hr_* only relevant when working independently due to a wrap
+    hr_start: "me-auto",
+    hr_end: "ms-auto",
+    hr_center: "ms-auto me-auto",
+
     xs1sm1: "col-12 ",
     xs2sm4: "col-6 col-sm-3 ",
     xs1sm2: "col-12 col-sm-6 ",
-    xs1sm3: "col-12 col-sm-4 ",
+    xs1sm2md3: "col-12 col-sm-6 col-md-4",
+    xs1sm3: "col-12 col-sm-4",
 
   }
 
-  
- 
-
- 
- // bpNative
-
   //readonly breakpoint$;
 
-  constructor() {
-    console.log('outletData ', this.outletData())
+  outletDataStatic: any
 
-  //  this.bpNative = this.bps.breakpointNative()
-    
+  
+  constructor() {
+    // this.outletDataStatic = this.outletData()
+    //  console.log('outletData ', this.outletData()) // not working when called by selector into dialog
+
+    //  this.bpNative = this.bps.breakpointNative()
+
   }
 
   ngOnInit(): void {
     //  this.breakpoint$.subscribe(() => this.breakpointChanged());
+ 
   }
 
   ngAfterViewInit() {
@@ -156,23 +184,19 @@ export class View4Component {
       case "xs":
       case "sm":
       case "md":
-        this.toggle_msn_mode_bothsides('over', false); // move the matSideNavs out of view
+        // over places a shaded backdrop to behave like a dialog
+        // over || slide 
+        this.toggle_msn_mode_bothsides('slide', false); // move the matSideNavs out of view
         break;
       default:
         this.toggle_msn_mode_bothsides('side', true);
     }
   }
-  /*
-    toggleMatSideNav() {
-      this.sidenav1.toggle();
-      this.sidenav2.toggle();
-    }
-    
-   */
 
   toggle_msn_mode_bothsides(mode: any, state: boolean) {
-    return
-    this.sidenav_mode  = mode;
+    this.sidenav_mode = mode;
+
+    // dialog eror here
     this.sidenav1.mode = mode;
     this.sidenav2.mode = mode;
 
@@ -193,20 +217,9 @@ export class View4Component {
       x.open()
     }
 
-
-    /*
-    if (x.mode === "over") {
-      x.mode = "side"
-      x.open();
-    }
-    else {
-      x.mode = "over"
-      x.close();
-    }
-      */
   }
 
- 
+
   openDialog() {
 
     /*
@@ -219,7 +232,7 @@ export class View4Component {
       maxHeight: "100%",
       disableClose: true, // only the cancel button closes the dialog when true
       //   panelClass: 'bg-danger'
-      data : { height: "calc(100% - 15px)", title : 'SOME TITLE' }
+      data: { height: "calc(100% - 15px)", title: 'SOME TITLE' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -233,5 +246,10 @@ export class View4Component {
     this.destroy$.complete();
     this.subs.forEach(sub => sub.unsubscribe());
   }
+
+
+
+
+
 
 }
