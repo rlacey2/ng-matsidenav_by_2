@@ -41,8 +41,10 @@ export class StatusComponent {
 
   public dialog = inject(MatDialog)
   // outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
-  private breakpointObserver = inject(BreakpointObserver)
+
   //  outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>; not allowed if selected into a dialog
+
+  private breakpointObserver = inject(BreakpointObserver)
   bps = inject(BreakpointService)
 
   @ViewChild('matsidenav1') sidenav1!: MatSidenav;
@@ -133,7 +135,10 @@ export class StatusComponent {
 
   }
 
+ 
   ngAfterViewInit() {
+
+    /*
     setTimeout(() => {
 
       this.breakpointObserver
@@ -163,10 +168,75 @@ export class StatusComponent {
           }
         )
 
-    }, 10);
+    }, 1);
+*/
+
+ this.watch_breakPointChange()
+
+  }
+
+  watch_breakPointChange() {
+    setTimeout(() => {
+      this.subs.push(
+        this.bps.bp$.subscribe(
+          {
+            next: x => {
+              console.log('bps.bp$.subscribe ')
+              console.log(x)
+              this.currentState = x['newState'];
+              this.currentBreakpointKey = x['newState'] //= x['currentBreakpoint']
+           //   this.setUIStateBasedOnBreakpoint(  this.sidenav1, this.sidenav2);
+           this.bps.setUIStateBasedOnBreakpoint(this.sidenav1, this.sidenav2);
+            }
+          }
+        )
+      )
+        , 1
+    })
   }
 
 
+  toggle_msn_single(x: MatSidenav) {
+    if (x.opened) {
+      x.close();
+    }
+    else {
+      x.open()
+    }
+
+  }
+
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.subs.forEach(sub => sub.unsubscribe());
+  }
+
+ 
+  openDialog() {
+
+    /*
+     Fullscreen dialog with  margins
+     */
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      height: "calc(100% - 15px)",
+      width: "calc(100% - 15px)",
+      maxWidth: "100%",
+      maxHeight: "100%",
+      disableClose: true, // only the cancel button closes the dialog when true
+      //   panelClass: 'bg-danger'
+      data: { height: "calc(100% - 15px)", title: 'SOME TITLE' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+ 
+
+  /*
   handleBreakpointChange(state: BreakpointState): Observable<string> {
     // This function returns a new observable for each breakpoint and is the switchMap will subscribe to it.
     console.log('handleBreakpointChange ', state)
@@ -199,79 +269,7 @@ export class StatusComponent {
     });
 
   }
-
-
-  setUIStateBasedOnBreakpoint() {
-    console.log('setUIStateBasedOnBreakpoint')
-    switch (this.currentBreakpointKey) {
-      case "xs":
-      case "sm":
-      case "md":
-        // over places a shaded backdrop to behave like a dialog
-        // over || slide 
-        this.toggle_msn_mode_bothsides('slide', false); // move the matSideNavs out of view
-        break;
-      default:
-        this.toggle_msn_mode_bothsides('side', true);
-    }
-  }
-
-  toggle_msn_mode_bothsides(mode: any, state: boolean) {
-    this.sidenav_mode = mode;
-
-    // dialog eror here
-    this.sidenav1.mode = mode;
-    this.sidenav2.mode = mode;
-
-    if (state) {
-      this.sidenav1.open();
-      this.sidenav2.open();
-    } else {
-      this.sidenav1.close();
-      this.sidenav2.close();
-    }
-  }
-
-  toggle_msn_single(x: MatSidenav) {
-    if (x.opened) {
-      x.close();
-    }
-    else {
-      x.open()
-    }
-
-  }
-
-
-  openDialog() {
-
-    /*
-     Fullscreen dialog with  margins
-     */
-    const dialogRef = this.dialog.open(GenericDialogComponent, {
-      height: "calc(100% - 15px)",
-      width: "calc(100% - 15px)",
-      maxWidth: "100%",
-      maxHeight: "100%",
-      disableClose: true, // only the cancel button closes the dialog when true
-      //   panelClass: 'bg-danger'
-      data: { height: "calc(100% - 15px)", title: 'SOME TITLE' }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-
-  ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
-    this.subs.forEach(sub => sub.unsubscribe());
-  }
-
-
-
+*/
 
 
 

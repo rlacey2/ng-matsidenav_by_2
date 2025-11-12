@@ -20,7 +20,7 @@
             <mat-sidenav #matsidenav1 opened mode="side" position="start" class="msn-side-default msn-start">
                 <div class="d-flex flex-column ">
                     <button aria-label="Close Left Drawer" mat-button (click)="toggle_msn_single(matsidenav1)"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-left ms-auto">
+                        [class.hidden]="matsidenav1.mode ==='side'" class="msn-btn-close msn-btn-close-left ms-auto">
                         <span class="msn-arrow-size msn-btn-facing-left">&#8612;</span>
                     </button>
                     <div class="msn-side-links">
@@ -114,7 +114,7 @@
                 <div class="d-flex flex-column">
 
                     <button aria-label="Close Right Drawer" mat-button (click)="toggle_msn_single(matsidenav2)"
-                        [class.hidden]="sidenav_mode ==='side'" class="msn-btn-close msn-btn-close-right me-auto"><span
+                        [class.hidden]="matsidenav1.mode ==='side'" class="msn-btn-close msn-btn-close-right me-auto"><span
                             class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
                     <div class="msn-side-links">
@@ -219,14 +219,14 @@
                                
                             -->
                         <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
-                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
+                            [class.hidden]="matsidenav1.mode ==='side'" class="msn-btn-default msnbtn1"><span
                                 class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
                         <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
                             currentBreakpoint}}</span>
 
                         <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
-                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
+                            [class.hidden]="matsidenav1.mode ==='side'" class="msn-btn-default msnbtn2 "><span
                                 class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
 
                     </div>
@@ -528,14 +528,14 @@
                                
                             -->
                         <button mat-button (click)="toggle_msn_single(matsidenav1)" aria-label="Open Left Drawer"
-                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn1"><span
+                            [class.hidden]="matsidenav1.mode ==='side'" class="msn-btn-default msnbtn1"><span
                                 class="msn-arrow-size msn-btn-facing-right">&#8614;</span></button>
 
                         <span class="m-auto">{{currentBreakpointKey}} - {{sidenav_mode}} - {{
                             currentBreakpoint}}</span>
 
                         <button mat-button (click)="toggle_msn_single(matsidenav2)" aria-label="Open Right Drawer"
-                            [class.hidden]="sidenav_mode ==='side'" class="msn-btn-default msnbtn2 "><span
+                            [class.hidden]="matsidenav1.mode ==='side'" class="msn-btn-default msnbtn2 "><span
                                 class="msn-arrow-size msn-btn-facing-left">&#8612;</span></button>
 
                     </div>

@@ -3,7 +3,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { StatusComponent } from './status/status.component';
 import { GridComponent } from './grid/grid.component';
 import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
-import { BlankComponent } from './blank/blank.component';
+import { BlankComponent } from './blank_without_matsidecontainer/blank.component';
 
 
 export const routes: Routes = [

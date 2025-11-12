@@ -5,23 +5,25 @@ import { ROUTER_OUTLET_DATA } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { GenericDialogComponent } from '../dialogs/generic/genericdialog.component';
 import { RouterLink } from '@angular/router';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { BreakpointService } from '../services/bpo';
-
+import { LatinComponent } from "../_utility/latin.component";
 
 @Component({
-  selector: 'app-view3', // NB these classes to maintain response scrolling
+  selector: 'app-blankmsc', // NB these classes to maintain response scrolling
       host: {
       class:'d-flex flex-column overflow-hidden h-100'
   },
-  imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent],
-  templateUrl: './view4.component.html',
- // styleUrl: './view3.component.scss',
+  imports: [RouterLink, MatSidenavContainer, MatSidenav, MatSidenavContent, LatinComponent],
+  templateUrl: './view3.component.html',
+ 
 })
 
-export class View4Component {
+export class BlankmscComponent {
  
+ 
+
   public dialog = inject(MatDialog)
   // outletData = inject(ROUTER_OUTLET_DATA) as Signal<{ layout: string }>;
   private breakpointObserver = inject(BreakpointObserver)
@@ -107,8 +109,6 @@ export class View4Component {
   }
 
   ngAfterViewInit() {
-
-    /*
     setTimeout(() => {
 
       this.breakpointObserver
@@ -138,33 +138,74 @@ export class View4Component {
           }
         )
 
-    }, 1);
-*/
+    }, 10);
+  }
 
- this.watch_breakPointChange()
+
+  handleBreakpointChange(state: BreakpointState): Observable<string> {
+    // This function returns a new observable for each breakpoint and is the switchMap will subscribe to it.
+    console.log('handleBreakpointChange ', state)
+
+    for (const key in this.myBreakpoints) {
+
+      const bp = this.myBreakpoints[key];
+
+      console.log(bp)
+
+      if (state.breakpoints[bp] === true) {
+        this.currentBreakpoint = bp;
+        this.currentBreakpointKey = key
+
+        return new Observable((observer) => {
+          console.log('new breakpoint logic...');
+          observer.next(key);
+          observer.complete();
+        });
+
+      }
+
+    }
+
+    // default return observable
+    return new Observable((observer) => {
+      console.log('new breakpoint logic...');
+      observer.next('xs'); // assume smallest
+      observer.complete();
+    });
 
   }
 
-  watch_breakPointChange() {
-    setTimeout(() => {
-      this.subs.push(
-        this.bps.bp$.subscribe(
-          {
-            next: x => {
-              console.log('bps.bp$.subscribe ')
-              console.log(x)
-              this.currentState = x['newState'];
-              this.currentBreakpointKey = x['newState'] //= x['currentBreakpoint']
-           //   this.setUIStateBasedOnBreakpoint(  this.sidenav1, this.sidenav2);
-           this.bps.setUIStateBasedOnBreakpoint(this.sidenav1, this.sidenav2);
-            }
-          }
-        )
-      )
-        , 1
-    })
+
+  setUIStateBasedOnBreakpoint() {
+    console.log('setUIStateBasedOnBreakpoint')
+    switch (this.currentBreakpointKey) {
+      case "xs":
+      case "sm":
+      case "md":
+        // over places a shaded backdrop to behave like a dialog
+        // over || slide 
+        this.toggle_msn_mode_bothsides('slide', false); // move the matSideNavs out of view
+        break;
+      default:
+        this.toggle_msn_mode_bothsides('side', true);
+    }
   }
 
+  toggle_msn_mode_bothsides(mode: any, state: boolean) {
+    this.sidenav_mode = mode;
+
+    // dialog eror here
+    this.sidenav1.mode = mode;
+    this.sidenav2.mode = mode;
+
+    if (state) {
+      this.sidenav1.open();
+      this.sidenav2.open();
+    } else {
+      this.sidenav1.close();
+      this.sidenav2.close();
+    }
+  }
 
   toggle_msn_single(x: MatSidenav) {
     if (x.opened) {
@@ -177,6 +218,27 @@ export class View4Component {
   }
 
 
+  openDialog() {
+
+    /*
+     Fullscreen dialog with  margins
+     */
+    const dialogRef = this.dialog.open(GenericDialogComponent, {
+      height: "calc(100% - 15px)",
+      width: "calc(100% - 15px)",
+      maxWidth: "100%",
+      maxHeight: "100%",
+      disableClose: true, // only the cancel button closes the dialog when true
+      //   panelClass: 'bg-danger'
+      data: { height: "calc(100% - 15px)", title: 'SOME TITLE' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
@@ -184,38 +246,7 @@ export class View4Component {
   }
 
 
-/*
-  setUIStateBasedOnBreakpoint(sidenav1: MatSidenav, sidenav2: MatSidenav) {
-    console.log('setUIStateBasedOnBreakpoint')
-    switch (this.currentBreakpointKey) {
-      case "xs":
-      case "sm":
-      case "md":
-        // over places a shaded backdrop to behave like a dialog
-        // over || slide 
-        this.toggle_msn_mode_bothsides('slide', false,  sidenav1,  sidenav2); // move the matSideNavs out of view
-        break;
-      default:
-        this.toggle_msn_mode_bothsides('side', true,    sidenav1,  sidenav2); 
-    }
-  }
 
-  toggle_msn_mode_bothsides(mode: any, state: boolean, sidenav1: MatSidenav, sidenav2: MatSidenav) {
-
-
-    // dialog eror here
-    sidenav1.mode = mode;
-    sidenav2.mode = mode;
-
-    if (state) {
-       sidenav1.open();
-       sidenav2.open();
-    } else {
-       sidenav1.close();
-       sidenav2.close();
-    }
-  }
-  */
 
 
 
