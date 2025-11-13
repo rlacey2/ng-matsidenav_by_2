@@ -53,7 +53,7 @@ export class StatusComponent {
   // assuming side until told otherwise
   mode_default = 'side' // prevents button flicker in and out on larger devices 
   sidenav_mode: string = "side"; // store whether side || over || slide
-  currentState: string = 'Idle';
+
   private destroy$ = new Subject<void>(); // use as takeUntil flag
 
   subs: Subscription[] = [];
@@ -135,44 +135,9 @@ export class StatusComponent {
 
   }
 
- 
+
   ngAfterViewInit() {
-
-    /*
-    setTimeout(() => {
-
-      this.breakpointObserver
-        .observe([
-          this.myBreakpoints.xs,
-          this.myBreakpoints.sm,
-          this.myBreakpoints.md,
-          this.myBreakpoints.lg,
-          this.myBreakpoints.xl,
-          //'(min-width: 992px)', '(max-width: 991.98px)'
-        ])
-        .pipe(
-          // switchMap is used to switch to a new inner observable when the outer observable emits
-          // In this case, when the breakpoint changes
-          switchMap((state: BreakpointState) => this.handleBreakpointChange(state)),
-          takeUntil(this.destroy$)
-        )
-        .subscribe(
-          {
-            next: (newState) => {
-              this.currentState = newState;
-              console.log(`Current state: ${newState}`)
-              this.setUIStateBasedOnBreakpoint();
-            },
-
-            error: (error) => console.error('Error observing breakpoints:', error)
-          }
-        )
-
-    }, 1);
-*/
-
- this.watch_breakPointChange()
-
+    this.watch_breakPointChange()
   }
 
   watch_breakPointChange() {
@@ -183,10 +148,11 @@ export class StatusComponent {
             next: x => {
               console.log('bps.bp$.subscribe ')
               console.log(x)
-              this.currentState = x['newState'];
+
+              this.currentBreakpoint = x['currentBreakpoint'];
               this.currentBreakpointKey = x['newState'] //= x['currentBreakpoint']
-           //   this.setUIStateBasedOnBreakpoint(  this.sidenav1, this.sidenav2);
-           this.bps.setUIStateBasedOnBreakpoint(this.sidenav1, this.sidenav2);
+
+              this.bps.setUIStateBasedOnBreakpoint(this.sidenav1, this.sidenav2);
             }
           }
         )
@@ -196,7 +162,7 @@ export class StatusComponent {
   }
 
 
-  toggle_msn_single(x: MatSidenav) {
+  toggle_msn_single(x: MatSidenav) { 
     if (x.opened) {
       x.close();
     }
@@ -213,7 +179,7 @@ export class StatusComponent {
     this.subs.forEach(sub => sub.unsubscribe());
   }
 
- 
+
   openDialog() {
 
     /*
@@ -234,7 +200,7 @@ export class StatusComponent {
     });
   }
 
- 
+
 
   /*
   handleBreakpointChange(state: BreakpointState): Observable<string> {

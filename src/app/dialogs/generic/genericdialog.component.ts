@@ -51,7 +51,7 @@ export class GenericDialogComponent {
   // assuming side until told otherwise
   mode_default = 'side' // prevents button flicker in and out on larger devices 
   sidenav_mode: string = "side"; // store whether side || over || slide
-  currentState: string = 'Idle';
+  
   private destroy$ = new Subject<void>(); // use as takeUntil flag
 
   subs: Subscription[] = [];

@@ -49,7 +49,7 @@ export class BreakpointService {
   // assuming side until told otherwise
   mode_default = 'side' // prevents button flicker in and out on larger devices 
   sidenav_mode: string = "side"; // store whether side || over || slide
-  currentState: string = 'Idle';
+  
   currentBreakpoint: string = ''; // min max string
   currentBreakpointKey: string = ''
 
@@ -75,7 +75,7 @@ export class BreakpointService {
       .subscribe(
         {
           next: (newState) => {
-            this.currentState = newState;
+          //  this.currentState = newState;
             console.log(`bpo Current state: ${newState}`)
             this.bp_source$.next( { newState: newState, currentBreakpoint : this.currentBreakpoint  })
 

@@ -38,7 +38,7 @@ export class View3Component {
   // assuming side until told otherwise
   mode_default = 'side' // prevents button flicker in and out on larger devices 
   sidenav_mode: string = "side"; // store whether side || over || slide
-  currentState: string = 'Idle';
+ 
   private destroy$ = new Subject<void>(); // use as takeUntil flag
 
   subs: Subscription[] = [];
@@ -111,105 +111,32 @@ export class View3Component {
   }
 
   ngAfterViewInit() {
+    this.watch_breakPointChange()
+  }
+
+  watch_breakPointChange() {
     setTimeout(() => {
-
-      this.breakpointObserver
-        .observe([
-          this.myBreakpoints.xs,
-          this.myBreakpoints.sm,
-          this.myBreakpoints.md,
-          this.myBreakpoints.lg,
-          this.myBreakpoints.xl,
-          //'(min-width: 992px)', '(max-width: 991.98px)'
-        ])
-        .pipe(
-          // switchMap is used to switch to a new inner observable when the outer observable emits
-          // In this case, when the breakpoint changes
-          switchMap((state: BreakpointState) => this.handleBreakpointChange(state)),
-          takeUntil(this.destroy$)
-        )
-        .subscribe(
+      this.subs.push(
+        this.bps.bp$.subscribe(
           {
-            next: (newState) => {
-              this.currentState = newState;
-              console.log(`Current state: ${newState}`)
-              this.setUIStateBasedOnBreakpoint();
-            },
+            next: x => {
+              console.log('bps.bp$.subscribe ')
+              console.log(x)
 
-            error: (error) => console.error('Error observing breakpoints:', error)
+              this.currentBreakpoint = x['currentBreakpoint'];
+              this.currentBreakpointKey = x['newState'] //= x['currentBreakpoint']
+
+              this.bps.setUIStateBasedOnBreakpoint(this.sidenav1, this.sidenav2);
+            }
           }
         )
-
-    }, 10);
+      )
+        , 1
+    })
   }
 
 
-  handleBreakpointChange(state: BreakpointState): Observable<string> {
-    // This function returns a new observable for each breakpoint and is the switchMap will subscribe to it.
-    console.log('handleBreakpointChange ', state)
-
-    for (const key in this.myBreakpoints) {
-
-      const bp = this.myBreakpoints[key];
-
-      console.log(bp)
-
-      if (state.breakpoints[bp] === true) {
-        this.currentBreakpoint = bp;
-        this.currentBreakpointKey = key
-
-        return new Observable((observer) => {
-          console.log('new breakpoint logic...');
-          observer.next(key);
-          observer.complete();
-        });
-
-      }
-
-    }
-
-    // default return observable
-    return new Observable((observer) => {
-      console.log('new breakpoint logic...');
-      observer.next('xs'); // assume smallest
-      observer.complete();
-    });
-
-  }
-
-
-  setUIStateBasedOnBreakpoint() {
-    console.log('setUIStateBasedOnBreakpoint')
-    switch (this.currentBreakpointKey) {
-      case "xs":
-      case "sm":
-      case "md":
-        // over places a shaded backdrop to behave like a dialog
-        // over || slide 
-        this.toggle_msn_mode_bothsides('slide', false); // move the matSideNavs out of view
-        break;
-      default:
-        this.toggle_msn_mode_bothsides('side', true);
-    }
-  }
-
-  toggle_msn_mode_bothsides(mode: any, state: boolean) {
-    this.sidenav_mode = mode;
-
-    // dialog eror here
-    this.sidenav1.mode = mode;
-    this.sidenav2.mode = mode;
-
-    if (state) {
-      this.sidenav1.open();
-      this.sidenav2.open();
-    } else {
-      this.sidenav1.close();
-      this.sidenav2.close();
-    }
-  }
-
-  toggle_msn_single(x: MatSidenav) {
+  toggle_msn_single(x: MatSidenav) { 
     if (x.opened) {
       x.close();
     }
@@ -217,27 +144,6 @@ export class View3Component {
       x.open()
     }
 
-  }
-
-
-  openDialog() {
-
-    /*
-     Fullscreen dialog with  margins
-     */
-    const dialogRef = this.dialog.open(GenericDialogComponent, {
-      height: "calc(100% - 15px)",
-      width: "calc(100% - 15px)",
-      maxWidth: "100%",
-      maxHeight: "100%",
-      disableClose: true, // only the cancel button closes the dialog when true
-      //   panelClass: 'bg-danger'
-      data: { height: "calc(100% - 15px)", title: 'SOME TITLE' }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
 

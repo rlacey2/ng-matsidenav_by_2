@@ -34,7 +34,7 @@ export class View4Component {
   // assuming side until told otherwise
   mode_default = 'side' // prevents button flicker in and out on larger devices 
   sidenav_mode: string = "side"; // store whether side || over || slide
-  currentState: string = 'Idle';
+  
   private destroy$ = new Subject<void>(); // use as takeUntil flag
 
   subs: Subscription[] = [];
@@ -153,7 +153,7 @@ export class View4Component {
             next: x => {
               console.log('bps.bp$.subscribe ')
               console.log(x)
-              this.currentState = x['newState'];
+        
               this.currentBreakpointKey = x['newState'] //= x['currentBreakpoint']
            //   this.setUIStateBasedOnBreakpoint(  this.sidenav1, this.sidenav2);
            this.bps.setUIStateBasedOnBreakpoint(this.sidenav1, this.sidenav2);

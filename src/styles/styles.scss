@@ -37,8 +37,9 @@
     --msn-btn-hover-padding: 10px; // var(--msn-btn-hover-padding, 10px) // allows a visual flick jump
     --msn-btn-color: mediumpurple; // var(--msn-bg-color, red)
     --msn-btn-arrow-size-font-size: 16px; // var(--msn-btn-arrow-size-font-size, 20px)
-
     --msn-btn-bg-color: white; // var(--msn-btn-bg-color, white)
+    --msn-btn-z-index: 2; // var(--msn-btn-z-index, 4)
+
     --msn-btn-transition: ease-in-out 0.8s; // var(--msn-btn-transition,    ease-in-out 0.8s)
     --default-transition: ease-in-out 0.8s; // var(--default-transition,    ease-in-out 0.8s)
     ;
@@ -253,11 +254,14 @@ originally status nav content
 .msn-side-default {
     background-color: var(--msn-bg-color, white) !important; 
     width: var(--msn-bg-width, 120px) !important;
+    transition: var(--default-transition, ease-in-out 0.8s)
 }
 
 .msn-btn-default {
     //  position: absolute;
     //  top:-10px;
+
+    z-index: var(--msn-btn-z-index, 4); // .mat-drawer-backdrop is 3, so this allows both sides in play
 
     background-color: var(--msn-btn-bg-color, red);
     transition: var(--msn-btn-transition, ease-in-out 0.8s)
